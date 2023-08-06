@@ -15,24 +15,21 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">Criar conta</a>
+              @if(Auth::check())
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Meu perfil - {{ Auth::user()->name }}</a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Editar perfil</a></li>
+                </ul>
+                @else
+                <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Criar conta</a></li>
+                <li><a class="dropdown-item" href="{{ route('logout') }}">Fazer login</a></li>
               </li>
+              @endif
               <li class="nav-item">
                 <a class="nav-link" href="">Fale conosco</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
               </li>
             </ul>
             <form class="d-flex mt-3" role="search">
