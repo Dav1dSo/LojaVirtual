@@ -4,14 +4,20 @@
     @include('includes.headerbootstrap')
 </head>
 <style>
+    
     .container {
         margin-top: 10rem;
     }
+
+    #wrap {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
 </style>
 
 <body>
     @include('includes.navbar')
-    <div class="container col-lg-8">
+    <div id="wrap" class="container col-lg-8 w-50">
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-8 my-3">
@@ -22,16 +28,19 @@
                 @csrf
                 <div class="mb-3 w-50 mx-auto">
                     <label for="email" class="form-label">Email</label>
-                    <input name="email" type="email" class="form-control" id="email" required autofocus autocomplete="username" aria-describedby="emailHelp">
+                    <input name="email" type="email" class="form-control" id="email" required autofocus autocomplete="username">
                 </div>
                 <div class="mb-3 w-50 mx-auto">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="password" required autocomplete="current-password">
                 </div>
-                <div class="mb-3 w-50 mx-auto">
+                <div class="mb-3 w-50 mx-auto d-flex justify-content-between">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="remember_me" checked name="remember">
+                        <input class="form-check-input" type="checkbox" id="remember_me" name="remember">
                         <label class="form-check-label" for="remember_me">Relembrar</label>
+                    </div>
+                    <div>
+                        <a href="{{ route('password.request') }}" >Esqueceu sua senha ?</a>
                     </div>
                 </div>
                 <div class="d-grid gap-2 col-1 mx-auto">
@@ -43,11 +52,11 @@
     </div>
 </body>
 @include('includes.scriptsbootstrap')
-
+    
 </html>
 
-
-{{-- <x-guest-layout>
+{{-- 
+<x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -91,4 +100,4 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout> --}}
+</x-guest-layout>  --}}
