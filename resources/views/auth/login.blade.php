@@ -33,16 +33,16 @@
                             <p class="font-weight-light text-danger text-center">Email não encontrado!</p>
                         @enderror
                     </div>                    
-                    <input name="email" type="email" class="form-control" id="email" required autofocus autocomplete="username">
+                    <input value="{{ old('email') }}" name="email" type="email" class="form-control" id="email" required autofocus autocomplete="username">
                 </div>
                 <div class="mb-3 w-50 mx-auto">
                     <div class="d-flex justify-content-between">
                         <label for="password" class="form-label">Password</label>
-                        @error('email')
+                        @error('password')
                             <p class="font-weight-light text-danger text-center">Senha incorreta!</p>
                         @enderror
                     </div>
-                    <input name="password" type="password" class="form-control" id="password" required autocomplete="current-password">
+                    <input value="{{ old('password') }}" name="password" type="password" class="form-control" id="password" required autocomplete="current-password">
                 </div>
                 <div class="mb-3 w-50 mx-auto d-flex justify-content-between">
                     <div class="form-check">
@@ -50,11 +50,11 @@
                         <label class="form-check-label" for="remember_me">Relembrar</label>
                     </div>
                     <div>
-                        <a href="{{ route('password.request') }}" >Esqueceu sua senha ?</a>
+                        <a href="{{ route('password.request') }}">Esqueceu sua senha ?</a>
                     </div>
                 </div>
                 <div class="d-grid gap-2 col-1 mx-auto">
-                    <input type="submit" class="btn btn-primary" type="button"></input>
+                    <input type="submit" class="btn btn-primary" type="button">
             </form>
             <div class="col-lg-2"></div>
         </div>
