@@ -33,7 +33,7 @@
                             <p class="font-weight-light text-danger text-center">Email não encontrado!</p>
                         @enderror
                     </div>                    
-                    <input value="{{ old('email') }}" name="email" type="email" class="form-control" id="email" required autofocus autocomplete="username">
+                    <input value="{{ old('email') }}" name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="email" required autofocus autocomplete="username">
                 </div>
                 <div class="mb-3 w-50 mx-auto">
                     <div class="d-flex justify-content-between">
@@ -42,7 +42,7 @@
                             <p class="font-weight-light text-danger text-center">Senha incorreta!</p>
                         @enderror
                     </div>
-                    <input value="{{ old('password') }}" name="password" type="password" class="form-control" id="password" required autocomplete="current-password">
+                    <input value="{{ old('password') }}" name="password" type="password" class="form-control @error('password') is-invalid @enderror" id="password" required autocomplete="current-password">
                 </div>
                 <div class="mb-3 w-50 mx-auto d-flex justify-content-between">
                     <div class="form-check">

@@ -11,6 +11,11 @@
     #wrap {
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
+
+    .include_footer {
+        margin-top: 28vh;
+    }
+
 </style>
 
 <body>
@@ -33,7 +38,8 @@
                             <p class="font-weight-light text-danger text-center">Name não disponivel!</p>
                         @enderror
                     </div>
-                    <input value="{{ old('name') }}" name="name" type="text" class="form-control" id="name" required autofocus
+                    <input value="{{ old('name') }}" name="name" type="text"
+                        class="form-control @error('name') is-invalid @enderror" id="name" required autofocus
                         autocomplete="name">
                 </div>
                 <!-- Email Address -->
@@ -44,7 +50,8 @@
                             <p class="font-weight-light text-danger text-center">Digite um email válido!</p>
                         @enderror
                     </div>
-                    <input value="{{ old('email') }}" name="email" type="email" class="form-control" id="email" required autofocus
+                    <input value="{{ old('email') }}" name="email" type="email"
+                        class="form-control @error('email') is-invalid @enderror " id="email" required autofocus
                         autocomplete="username">
                 </div>
                 <!-- Password -->
@@ -55,7 +62,8 @@
                             <p class="font-weight-light text-danger text-center">Senhas inválidas !</p>
                         @enderror
                     </div>
-                    <input value="{{ old('password') }}" name="password" type="password" class="form-control" id="password" required
+                    <input value="{{ old('password') }}" name="password" type="password"
+                        class="form-control @error('password') is-invalid @enderror" id="password" required
                         autocomplete="current-password">
                 </div>
                 <!-- Confirm Password -->
@@ -66,8 +74,9 @@
                             <p class="font-weight-light text-danger text-center">Senha não confere!</p>
                         @enderror
                     </div>
-                    <input value="{{ old('password_confirmation') }}" name="password_confirmation" type="password" class="form-control" id="password_confirmation"
-                        required autocomplete="new-password">
+                    <input value="{{ old('password_confirmation') }}" name="password_confirmation" type="password"
+                        class="form-control @error('password') is-invalid @enderror" id="password_confirmation" required
+                        autocomplete="new-password">
                 </div>
                 <div class="mb-3 w-50 mx-auto">
                     <div class="text-center">
@@ -76,12 +85,12 @@
                 </div>
                 <div class="d-grid gap-2 col-1 mx-auto">
                     <input type="submit" class="btn btn-primary" type="button">
-            </form> 
+            </form>
             <div class="col-lg-2"></div>
         </div>
-        @include('includes.footer')
     </div>
 </body>
+<div class="include_footer">@include('includes.footer')</div>
 @include('includes.scriptsbootstrap')
 
 </html>

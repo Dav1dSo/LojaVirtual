@@ -15,7 +15,7 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
-              @if(Auth::check())
+              @if(Auth::check() || Auth::viaRemember())
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Meu perfil - {{ Auth::user()->name }}</a>
                 <ul class="dropdown-menu dropdown-menu-dark">
@@ -29,7 +29,7 @@
               </li>
               @endif
               <li class="nav-item">
-                <a class="nav-link" href="">Fale conosco</a>
+                <a class="nav-link" href="#">Fale conosco</a>
               </li>
             </ul>
             <form class="d-flex mt-3" role="search">
@@ -39,5 +39,5 @@
           </div>
         </div>
       </div>
-    </nav>
+    </nav>  
 </div>
