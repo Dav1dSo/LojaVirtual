@@ -24,46 +24,78 @@
                 <p class="text-center lead">Editar informações de perfil.</p>
             </div>
             <form method="post" action="{{ route('profile.update') }}">
+                <div class="ms-4 text-center ">
+                    <h5>Editar usuário</h5>
+                    <p>Atualize seus dados de usuário</p>
+                </div>
                 @csrf
                 @method('patch')
-                <div class="form-group row">
-                    <label for="name" class="col-sm-2 col-form-label">Usuário</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="name" value="{{ Auth::user()->name }}" name="name">
-                    </div>
-                </div>
-                <div class="form-group row mt-4">
-                    <label for="email" class="col-sm-2 col-form-label">Email</label>
-                    @error('email')
-                            <p class="font-weight-light text-danger text-center">Email inválido!</p>
+                <div class="mb-3 w-50 mx-auto">
+                    <div class="d-flex justify-content-between">
+                        <label for="name" class="form-label">Usuário</label>
+                        @error('name')
+                            <p class="font-weight-light text-danger text-center">Usuário não disponivel!</p>
                         @enderror
-                    <div class="col-sm-10">
-                        <input placeholder="Email" value="{{ Auth::user()->email }}" name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="email" required autofocus autocomplete="username">
                     </div>
-                </div>
-                {{-- ----- --}}
-                {{-- <div class="mb-3 w-50 mx-auto">
+                    <input value="{{ Auth::user()->name }}" name="name" type="text"
+                        class="form-control @error('name') is-invalid @enderror" id="name" required autofocus
+                        autocomplete="name">
+                </div>      
+                <div class="mb-3 w-50 mx-auto">
                     <div class="d-flex justify-content-between">
                         <label for="email" class="form-label">Email</label>
                         @error('email')
-                            <p class="font-weight-light text-danger text-center">Email inválido!</p>
+                            <p class="font-weight-light text-danger text-center">Digite um email válido!</p>
                         @enderror
-                    </div>                    
-                    <input value="{{ old('email') }}" name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="email" required autofocus autocomplete="username">
+                    </div>
+                    <input value="{{ Auth::user()->email }}" name="email" type="email"
+                        class="form-control @error('email') is-invalid @enderror " id="email" required autofocus
+                        autocomplete="username">
+                </div>
+                <div class="d-grid gap-2 mt-4 col-1 mx-auto">
+                    <input type="submit" class="btn btn-primary" type="button">
+                </div>
+            </form>
+            <hr>
+            <form method="post" action="{{ route('password.update') }}">
+                <div class="ms-4 mt-5 text-center">
+                    <h5>Alterar senha</h5>
+                    <p>Atualize seua senha</p>
+                </div>
+                @csrf
+                @method('put')
+            
+                <div class="mb-3 w-50 mx-auto">
+                    <div class="d-flex justify-content-between">
+                        <label for="current_password" class="form-label">Senha atual</label>
+                        @error('current_password')
+                            <p class="font-weight-light text-danger text-center">Senha incorreta!</p>
+                        @enderror
+                    </div>
+                    <input placeholder="Digite sua senha" name="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror" id="password" required autocomplete="current-password">
                 </div>
                 <div class="mb-3 w-50 mx-auto">
                     <div class="d-flex justify-content-between">
-                        <label for="name" class="form-label">Name</label>
-                        @error('name')
-                            <p class="font-weight-light text-danger text-center">Name não disponivel!</p>
+                        <label for="password" class="form-label">Nova Senha</label>
+                        @error('password')
+                            <p class="font-weight-light text-danger text-center">Senha incorreta!</p>
                         @enderror
                     </div>
-                    <input value="{{ old('name') }}" name="name" type="text"
-                        class="form-control @error('name') is-invalid @enderror" id="name" required autofocus
-                        autocomplete="name">
-                </div>   --}}
+                    <input placeholder="Senha atual" value="{{ old('password') }}" name="password" type="password" class="form-control @error('password') is-invalid @enderror" id="password" required autocomplete="current-password">
+                </div>
+                <div class="mb-3 w-50 mx-auto">
+                    <div class="d-flex justify-content-between">
+                        <label for="password_confirmation" class="form-label">Confirmar Senha</label>
+                        @error('password_confirmation')
+                            <p class="font-weight-light text-danger text-center">Senha incorreta!</p>
+                        @enderror
+                    </div>
+                    <input placeholder="Repita nova senha" name="password_confirmation" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password" required autocomplete="current-password">
+                </div>
+                
                 <div class="d-grid gap-2 mt-4 col-1 mx-auto">
                     <input type="submit" class="btn btn-primary" type="button">
+                </div>
             </form>
             <div class="col-lg-2"></div>
         </div>
@@ -73,7 +105,7 @@
 
 </html>
 
-{{-- 
+{{--  
 
  <x-app-layout>
     <x-slot name="header">
@@ -103,4 +135,4 @@
             </div>
         </div>
     </div>
-</x-app-layout> --}}
+</x-app-layout>  --}}
