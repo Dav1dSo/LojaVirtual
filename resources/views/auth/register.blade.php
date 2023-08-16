@@ -34,14 +34,15 @@
                 <!-- Name -->
                 <div class="mb-3 w-50 mx-auto">
                     <div class="d-flex justify-content-between">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label">Usuário</label>
                         @error('name')
-                            <p class="font-weight-light text-danger text-center">Name não disponivel!</p>
+                            <p class="font-weight-light text-danger text-center">Usuário não disponivel!</p>
                         @enderror
                     </div>
                     <input value="{{ old('name') }}" name="name" type="text"
                         class="form-control @error('name') is-invalid @enderror" id="name" required autofocus
-                        autocomplete="name">
+                        autocomplete="name"
+                        placeholder="Digite seu usuário">
                 </div>
                 <!-- Email Address -->
                 <div class="mb-3 w-50 mx-auto">
@@ -53,7 +54,8 @@
                     </div>
                     <input value="{{ old('email') }}" name="email" type="email"
                         class="form-control @error('email') is-invalid @enderror " id="email" required autofocus
-                        autocomplete="username">
+                        autocomplete="username"
+                        placeholder="Digite seu email">
                 </div>
                 <!-- Password -->
                 <div class="mb-3 w-50 mx-auto">
@@ -65,7 +67,8 @@
                     </div>
                     <input value="{{ old('password') }}" name="password" type="password"
                         class="form-control @error('password') is-invalid @enderror" id="password" required
-                        autocomplete="current-password">
+                        autocomplete="current-password"
+                        placeholder="Escolha sua senha">
                 </div>
                 <!-- Confirm Password -->
                 <div class="mb-3 w-50 mx-auto">
@@ -77,7 +80,8 @@
                     </div>
                     <input value="{{ old('password_confirmation') }}" name="password_confirmation" type="password"
                         class="form-control @error('password') is-invalid @enderror" id="password_confirmation" required
-                        autocomplete="new-password">
+                        autocomplete="new-password"
+                        placeholder="Repita a senha">
                 </div>
                 <div class="mb-3 w-50 mx-auto">
                     <div class="text-center">
