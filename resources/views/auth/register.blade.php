@@ -5,7 +5,7 @@
 </head>
 <style>
     .container {
-        margin-top: 10rem;
+        margin-top: 7rem;
     }
 
     #wrap {
