@@ -12,12 +12,9 @@
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              @if(Auth::check() || Auth::viaRemember())
+               @if(Auth::check() || Auth::viaRemember())
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Meu perfil - {{ Auth::user()->name }}</a>
+                <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">Meu perfil - {{ Auth::user()->name }}</a>
                 <ul class="dropdown-menu dropdown-menu-dark">
                   <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                   <li><hr class="dropdown-divider"></li>
@@ -28,14 +25,15 @@
                 <li><a class="dropdown-item" href="{{ route('logout') }}">Fazer login</a></li>
               </li>
               @endif
-              <li class="nav-item">
-                <a class="nav-link" href="#">Fale conosco</a>
-              </li>
+              @if(Auth::user()->permission == 'admin' || "  ")
+              <li class="nav-item"><a class="nav-link" href="{{route('management')}}">Área administrativa</a></li>
+              @endif
+                <li class="nav-item"><a class="nav-link" href="#">Fale conosco</a></li>
             </ul>
-            <form class="d-flex mt-3" role="search">
+            {{-- <form class="d-flex mt-3" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-success" type="submit">Search</button>
-            </form>
+            </form> --}}
           </div>
         </div>
       </div>
