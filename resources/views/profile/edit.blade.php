@@ -4,13 +4,18 @@
     @include('includes.headerbootstrap')
 </head>
 <style>
+
     .container {
         margin-top: 10rem;
     }
 
-    #wrap {
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    form {
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+        margin-bottom: 40px;
+        padding: 4rem;
+        border-radius: 15px;
     }
+
 </style>
 
 <body>
@@ -37,9 +42,7 @@
                             <p class="font-weight-light text-danger text-center">Usuário não disponivel!</p>
                         @enderror
                     </div>
-                    <input value="{{ Auth::user()->name }}" name="name" type="text"
-                        class="form-control @error('name') is-invalid @enderror" id="name" required autofocus
-                        autocomplete="name">
+                    <input value="{{ Auth::user()->name }}" name="name" type="text" class="form-control @error('name') is-invalid @enderror" id="name" required autofocus autocomplete="name">
                 </div>      
                 <div class="mb-3 w-50 mx-auto">
                     <div class="d-flex justify-content-between">
@@ -48,17 +51,14 @@
                             <p class="font-weight-light text-danger text-center">Digite um email válido!</p>
                         @enderror
                     </div>
-                    <input value="{{ Auth::user()->email }}" name="email" type="email"
-                        class="form-control @error('email') is-invalid @enderror " id="email" required autofocus
-                        autocomplete="username">
+                    <input value="{{ Auth::user()->email }}" name="email" type="email" class="form-control @error('email') is-invalid @enderror " id="email" required autofocus autocomplete="username">
                 </div>
                 <div class="d-grid gap-2 mt-4 col-1 mx-auto">
                     <input type="submit" class="btn btn-primary" type="button">
                 </div>
             </form>
-            <hr>
             <form method="post" action="{{ route('password.update') }}">
-                <div class="ms-4 mt-5 text-center">
+                <div class="ms-4 text-center">
                     <h5>Alterar senha</h5>
                     <p>Atualize seua senha</p>
                 </div>
@@ -101,38 +101,5 @@
         </div>
     </div>
 </body>
-@include('includes.scriptsbootstrap')
-
+    @include('includes.scriptsbootstrap')
 </html>
-
-{{--  
-
- <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>  --}}
