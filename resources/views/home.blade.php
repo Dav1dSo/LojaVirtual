@@ -58,8 +58,7 @@
                     class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Card Camisas</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <a href="#" class="btn btn-primary">Ver mais</a>
                 </div>
             </div>
@@ -67,5 +66,5 @@
         @include('includes.footer')
     </div>
 </body>
-        @include('includes.scriptsbootstrap')
+    @include('includes.scriptsbootstrap')
 </html>
