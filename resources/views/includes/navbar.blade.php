@@ -25,15 +25,11 @@
                 <li><a class="dropdown-item" href="{{ route('logout') }}">Fazer login</a></li>
               </li>
               @endif
-              @if(Auth::user()->permission == 'admin' || "  ")
-              <li class="nav-item"><a class="nav-link" href="{{route('management')}}">Área administrativa</a></li>
+              @if(Auth::user()->permission == "admin" || Auth::user()->permission == "superAdmin")
+                <li class="nav-item"><a class="nav-link" href="{{route('management')}}">Área administrativa</a></li>
               @endif
                 <li class="nav-item"><a class="nav-link" href="#">Fale conosco</a></li>
             </ul>
-            {{-- <form class="d-flex mt-3" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-success" type="submit">Search</button>
-            </form> --}}
           </div>
         </div>
       </div>
