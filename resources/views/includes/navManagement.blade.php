@@ -4,7 +4,7 @@
     <div id="tableContainer">
         <ul class="nav justify-content-center">
             <li class="nav-item">
-              <a class="nav-link text-secondary border-bottom" href="#">Produtos</a>
+              <a class="nav-link text-secondary border-bottom" href="{{ route('management') }}">Produtos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-secondary border-bottom" href="#">Estoque</a>

@@ -21,12 +21,15 @@
                   <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Editar perfil</a></li>
                 </ul>
                 @else
+                <a class="nav-link text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">Meu perfil - Não logado</a>
                 <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Criar conta</a></li>
                 <li><a class="dropdown-item" href="{{ route('logout') }}">Fazer login</a></li>
               </li>
               @endif
-              @if(Auth::user()->permission == "admin" || Auth::user()->permission == "superAdmin")
+              @if (Auth::check() || Auth::viaRemember())
+                @if(Auth::user()->permission == "admin" || Auth::user()->permission == "superAdmin")
                 <li class="nav-item"><a class="nav-link" href="{{route('management')}}">Área administrativa</a></li>
+                @endif
               @endif
                 <li class="nav-item"><a class="nav-link" href="#">Fale conosco</a></li>
             </ul>
