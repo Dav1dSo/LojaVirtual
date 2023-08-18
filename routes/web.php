@@ -1,11 +1,15 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Management\indexController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
 });
+
+// Management
+Route::get('/areaAdministrativa', [indexController::class, 'index'])->middleware(['auth', 'verified'])->name('management');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
