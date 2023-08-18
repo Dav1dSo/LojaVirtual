@@ -1,66 +1,63 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Full-Ecommerce</title>
-    @include('includes.headerbootstrap')
-
+    <title>Laravel 8|7 Datatables Tutorial</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
-<style>
-    * {
-        margin: 0, padding: 0;
-    }
-
-    #tableContainer {
-        margin-top: 20vh;
-    }
-
-    #imgProduct {
-      width: 70px;
-    }
-
-</style>
-    
 <body>
     
-        @include('includes.navManagement')
-
-        <div class="mt-5 d-flex justify-content-center">
-        <table class="table w-50 text-center">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Image</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Valor</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Estoque</th>
-                <th scope="col">Opções</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td class="p-3"><img id="imgProduct" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6qcJpM-dzt6YKy8QOg9-nhGaV24iq0n2v3SFi8Y-pQx7cAGR0WqGQSD-MTiVo4uDNK9w&usqp=CAU" alt=""></td>
-                <td class="p-3">Mark</td>
-                <td class="p-3">R$ 2,99</td>
-                <td class="p-3">Produto reservado para público de 3 a 5 anos.</td>
-                <td class="p-3">20</td>
-                <td class="d-flex p-3"> 
-                    <a class="btn btn-primary" href="#">Editar</a> 
-                  <form action="/#" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger ms-1">Deletar</button>
-                  </form>
-                </td>
-              </tr>
-            </tbody>
-          </table>      
-        </div>
-    </div>
-</body> 
-    @include('includes.scriptsbootstrap')
+<div class="container mt-5">
+    <h2 class="mb-4">Laravel 7|8 Yajra Datatables Example</h2>
+    <table class="table table-bordered yajra-datatable">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>estoque</th>
+                <th>descricao</th>
+                <th>imagem</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+   
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    
+    var table = $('.yajra-datatable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('products.list') }}",
+        columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'id', name: 'id'},
+            {data: 'nome', name: 'nome'},
+            {data: 'valor', name: 'valor'},
+            {data: 'estoque', name: 'estoque'},
+            {data: 'descricao', name: 'descricao'},
+            {data: 'imagem', name: 'imagem'},
+            {
+                data: 'action', 
+                name: 'action', 
+                orderable: true, 
+                searchable: true
+            },
+        ]
+    });
+    
+  });
+</script>
 </html>

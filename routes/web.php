@@ -24,7 +24,7 @@ Route::get('/areaAdministrativa', [indexController::class, 'index'])->middleware
 
 // ------------ -----  DataTables  -----  --------------
 
-Route::get('/products/list', [ManagementDatatable::class, 'GetProducts'])->middleware(['auth', 'verified'])->name('Products.list');
+Route::get('/products/list', [ManagementDatatable::class, 'GetProducts'])->middleware(['auth', 'verified'])->name('products.list');
 
 
 

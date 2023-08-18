@@ -4,7 +4,8 @@ namespace App\Http\Controllers\DataTables;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Produtcs;
+use Illuminate\Support\Facades\DB;
 use DataTables;
 
 class ManagementDatatable extends Controller
@@ -12,8 +13,8 @@ class ManagementDatatable extends Controller
     public function GetProducts(Request $request)
     {
         if ($request->ajax()) {
-            $data = User::latest()->get();
-            return Datatables::of($data)
+            $data = Produtcs::latest()->get();
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
