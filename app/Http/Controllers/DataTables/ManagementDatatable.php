@@ -13,7 +13,7 @@ class ManagementDatatable extends Controller
     public function GetProducts(Request $request)
     {
         if ($request->ajax()) {
-            $data = Produtcs::latest()->get();
+            $data = DB::table('products')->get();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
