@@ -10,7 +10,7 @@
 <body>
     
 <div class="container mt-5">
-    <h2 class="mb-4">Yajra Datatables Example</h2>
+    <h2 class="mb-4">Laravel 7|8 Yajra Datatables Example</h2>
     <table class="table table-bordered yajra-datatable">
         <thead>
             <tr>
@@ -42,7 +42,8 @@
         serverSide: true,
         ajax: "{{ route('products.list') }}",
         columns: [
-            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            // {data: 'DT_RowIndex', name: 'DT_RowIndex'},  
+            {data: 'id', name: 'id'},
             {data: 'nome', name: 'nome'},
             {data: 'valor', name: 'valor'},
             {data: 'estoque', name: 'estoque'},
