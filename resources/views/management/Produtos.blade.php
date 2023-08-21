@@ -29,4 +29,4 @@
 </body>
     @include('includes.scriptsbootstrap')
     <script src="{{ asset('js/datatables/ProdutosDatatable.js') }}"></script>
-</html>
+</html> 
