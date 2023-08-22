@@ -17,7 +17,7 @@ class ManagementDatatable extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                    $actionBtn = '<a href="javascript:void(0)" class="btn btn-info text-white">Edit</a> <a href="javascript:void(0)" class="btn btn-danger">Delete</a>';
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])

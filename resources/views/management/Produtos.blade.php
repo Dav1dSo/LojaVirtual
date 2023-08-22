@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Laravel 8|7 Datatables Tutorial</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('includes.headerbootstrap')
 </head>
+
+<style>
+    #wrap-table {
+        margin-top: 150px;
+    }
+</style>
+
 <body>
-    
-<div class="container mt-5">
-    <h2 class="mb-4">Laravel 7|8 Yajra Datatables Example</h2>
-    <table class="table table-bordered yajra-datatable">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>Nome</th>
-                <th>Valor</th>
-                <th>estoque</th>
-                <th>descricao</th>
-                <th>imagem</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-</div>
-   
+    @include('includes.navbar')
+    <div class="container" id="wrap-table">
+        @include('includes.navManagement')  
+        <table class="text-center table table-bordered yajra-datatable" width="100%">
+            <thead>
+                <tr>
+                    <th scope="col">º</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Descricao</th>
+                    <th scope="col">Estoque</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
 </body>
-    @include('includes.scriptsbootstrap')
+@include('includes.scriptsbootstrap')
     <script src="{{ asset('js/datatables/ProdutosDatatable.js') }}"></script>
-</html> 
+</html>
