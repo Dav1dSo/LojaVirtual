@@ -16,10 +16,11 @@
 <body>
     @include('includes.navbar')
     <div class="container" id="wrap-table">
-        @include('includes.navManagement')  
+        @include('includes.navManagement')
         <table class="text-center table table-bordered yajra-datatable" width="100%">
             <thead>
                 <tr>
+                    <th></th>
                     <th scope="col">º</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Valor</th>
@@ -33,5 +34,8 @@
 
 </body>
 @include('includes.scriptsbootstrap')
-    <script src="{{ asset('js/datatables/ProdutosDatatable.js') }}"></script>
+<script src="{{ asset('js/datatables/ProdutosDatatable.js') }}"></script>
+<script type="text/javascript"
+    src="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+
 </html>

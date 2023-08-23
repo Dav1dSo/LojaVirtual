@@ -3,7 +3,6 @@ $(function () {
         select: true,    
         processing: true,
         serverSide: true,
-        order: [[1, 'asc']],    
         ajax: "/products/list",
         responsive: true,
         "language": {
@@ -14,6 +13,12 @@ $(function () {
             "infoFiltered": "(filtered from _MAX_ total records)"
         },
         columns: [
+            {
+                targets: 0,
+                checkboxes: {
+                   selectRow: true
+                }
+             },
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},  
             // { data: 'id', name: 'id' },
             { data: 'nome', name: 'nome' },
@@ -23,12 +28,26 @@ $(function () {
             {
                 data: 'action',
                 name: 'action',
-                orderable: true,
+                orderable: true,    
                 searchable: true,                  
-                // 'render': function (data, type, full, meta){
-                //     return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
-                // },
             },
-        ]
+        ],
+        'select': {
+            'style': 'multi'
+         },
+         'order': [[1, 'asc']]
     });
 });
+
+var rows_selected = table.column(0).checkboxes.selected();
+
+      // Iterate over all selected checkboxes
+      $.each(rows_selected, function(index, rowId){
+         // Create a hidden element
+         $(form).append(
+             $('<input>')
+                .attr('type', 'hidden')
+                .attr('name', 'id[]')
+                .val(rowId)
+         );
+      });
