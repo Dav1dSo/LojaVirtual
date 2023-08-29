@@ -16,7 +16,8 @@
 <body>
     @include('includes.navbar')
     <div class="container" id="wrap-table">
-        @include('includes.navManagement')
+        @include('includes.navManagement')  
+        <a href="{{ route('new_product') }}"><button type="button" class="btn btn-success mb-3">Adicionar</button></a>
         <table class="text-center table table-striped table-light yajra-datatable" width="100%">
             <thead>
                 <tr>
@@ -32,10 +33,9 @@
             </thead>
         </table>
     </div>
-
 </body>
 @include('includes.scriptsbootstrap')
 <script src="{{ asset('js/datatables/ProdutosDatatable.js') }}"></script>
-<script type="text/javascript" src="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+{{-- <script type="text/javascript" src="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script> --}}
 
 </html>
