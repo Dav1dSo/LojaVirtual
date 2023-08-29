@@ -1,8 +1,6 @@
 <div class="position-relative">
-    @include('includes.navbar')
-
     <div id="tableContainer">
-        <ul class="nav justify-content-center">
+        <ul class="nav justify-content-center mb-4">
             <li class="nav-item">
               <a class="nav-link text-secondary border-bottom" href="{{ route('management') }}">Produtos</a>
             </li>

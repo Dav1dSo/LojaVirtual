@@ -22,7 +22,7 @@
             <div class="card m-5" style="width: 27rem;">
                 <!-- Inicio car-1  -->
                 <img src="https://ae01.alicdn.com/kf/HTB1QUZ9SFXXXXaiXVXXq6xXFXXXM/Camisa-masculina-em-fibra-de-bambu-alta-qualidade-estilo-cl-ssico-cor-s-lida-camisas-sociais.jpg"
-                    class="card-img-top" alt="...">
+                    class="card-img-top" alt="img">
                 <div class="card-body">
                     <h5 class="card-title">Card Camisas</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
@@ -33,7 +33,7 @@
             <div class="card m-5" style="width: 27rem;">
                 <!-- Inicio car-1  -->
                 <img src="https://ae01.alicdn.com/kf/HTB1QUZ9SFXXXXaiXVXXq6xXFXXXM/Camisa-masculina-em-fibra-de-bambu-alta-qualidade-estilo-cl-ssico-cor-s-lida-camisas-sociais.jpg"
-                    class="card-img-top" alt="...">
+                    class="card-img-top" alt="img">
                 <div class="card-body">
                     <h5 class="card-title">Card Camisas</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
@@ -44,7 +44,7 @@
             <div class="card m-5" style="width: 27rem;">
                 <!-- Inicio car-1  -->
                 <img src="https://ae01.alicdn.com/kf/HTB1QUZ9SFXXXXaiXVXXq6xXFXXXM/Camisa-masculina-em-fibra-de-bambu-alta-qualidade-estilo-cl-ssico-cor-s-lida-camisas-sociais.jpg"
-                    class="card-img-top" alt="...">
+                    class="card-img-top" alt="img">
                 <div class="card-body">
                     <h5 class="card-title">Card Camisas</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
@@ -55,7 +55,7 @@
             <div class="card m-5" style="width: 27rem;">
                 <!-- Inicio car-1  -->
                 <img src="https://ae01.alicdn.com/kf/HTB1QUZ9SFXXXXaiXVXXq6xXFXXXM/Camisa-masculina-em-fibra-de-bambu-alta-qualidade-estilo-cl-ssico-cor-s-lida-camisas-sociais.jpg"
-                    class="card-img-top" alt="...">
+                    class="card-img-top" alt="img">
                 <div class="card-body">
                     <h5 class="card-title">Card Camisas</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

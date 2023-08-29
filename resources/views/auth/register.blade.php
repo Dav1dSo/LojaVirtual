@@ -4,12 +4,10 @@
     @include('includes.headerbootstrap')
 </head>
 <style>
-    .container {
-        margin-top: 7rem;
-    }
-
+    
     #wrap {
         box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+        margin-top: 7rem;
 
     }
 
@@ -28,7 +26,7 @@
                 <h1 class="text-center"><a class="navbar-brand" href="/">FULL<strong
                             class="text-info">Ecommerce</strong></a></h1>
                 <p class="text-center lead">Criar conta</p>
-            </div>
+            </div>  
             <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <!-- Name -->
