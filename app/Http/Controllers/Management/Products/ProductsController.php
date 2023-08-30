@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Management\Products;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Management\ProductRequest;
 use App\Interfaces\ProductsRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -17,16 +18,16 @@ class ProductsController extends Controller
     }
 
     public function index() {
-        return $this->ProductsRepository->getAllProducts();
-        // return view('management.Produtos');
+        return view('management.Produtos');
+        // return $this->ProductsRepository->getAllProducts();
     }
 
     public function CreateProductForm(Request $request) {
         return view('management.CreateProduct');
     }
 
-    public function InsertProduct(Request $request) {
-        return $request->all();
+    public function InsertProduct(ProductRequest $request) {
+        return  $request->all();
     }
 
 }

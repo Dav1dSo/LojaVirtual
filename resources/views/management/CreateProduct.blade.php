@@ -20,6 +20,7 @@
 </style>
 
 <body>
+
     @include('includes.navbar')
     <div id="form_create" class="container w-50 p-4">
         <div class="col-lg-12 my-3">
@@ -33,32 +34,36 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" placeholder="Nome do produto:">
+                        <input type="text" class="form-control @error('nome') is-invalid @enderror " id="nome" placeholder="Nome do produto:">
+                        @error('nome')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
+
                     <div class="form-group col-md-6">
                         <label for="valor">Valor</label>
-                        <input type="text" class="form-control" id="valor" placeholder="Valor R$:">
+                        <input type="text" class="form-control  @error('valor') is-invalid @enderror " id="valor" placeholder="Valor R$:">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="descricao">Descrição</label>
-                    <textarea class="form-control" id="descricao" placeholder="Descrição do produto:" rows="4"></textarea>
+                    <textarea class="form-control @error('descricao') is-invalid @enderror" id="descricao" placeholder="Descrição do produto:" rows="4"></textarea>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="imagem">Imagem</label>
-                        <input type="file" class="form-control" id="imagem">
+                        <input type="file" class="form-control @error('imagem') is-invalid @enderror" id="imagem">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="categoria">Categoria</label>
-                        <select id="categoria" class="form-control">
+                        <select id="categoria" class="form-control @error('categoria') is-invalid @enderror">
                             <option selected>Selecione...</option>
                             <option>Eletrônico</option>
                         </select>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="estoque">Estoque</label>
-                        <input type="number" class="form-control" id="estoque" placeholder="0">
+                        <input type="number" class="form-control @error('estoque') is-invalid @enderror" id="estoque" placeholder="0">
                     </div>
                 </div>
                 <div class="mt-3 d-flex justify-content-end">
