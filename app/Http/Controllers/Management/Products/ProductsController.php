@@ -21,8 +21,12 @@ class ProductsController extends Controller
         // return view('management.Produtos');
     }
 
-    public function CreateProduct(Request $request) {
+    public function CreateProductForm(Request $request) {
         return view('management.CreateProduct');
+    }
+
+    public function InsertProduct(Request $request) {
+        return $request->all();
     }
 
 }

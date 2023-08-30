@@ -28,7 +28,8 @@
             <p class="text-center lead">Novo produto</p>
         </div>
         <div class="d-flex justify-content-center">
-            <form>
+            <form method="POST" action="{{ route('insert_product') }}">
+                @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nome">Nome</label>

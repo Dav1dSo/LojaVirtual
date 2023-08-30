@@ -17,7 +17,8 @@ Route::middleware('auth')->group(function () {
 
 // Management
 Route::get('/areaAdministrativa', [ProductsController::class, 'index'])->middleware(['auth', 'verified'])->name('management');
-Route::get('/newProduct',[ProductsController::class, 'CreateProduct'])->middleware(['auth', 'verified'])->name('new_product');
+Route::get('/newProduct',[ProductsController::class, 'CreateProductForm'])->middleware(['auth', 'verified'])->name('new_product');
+Route::post('/createProduct',[ProductsController::class, 'InsertProduct'])->middleware(['auth', 'verified'])->name('insert_product');
 
 // ------------ -----  DataTables  -----  --------------
 
