@@ -21,16 +21,22 @@ class ProductsController extends Controller
         return view('management.Produtos');
         // return $this->ProductsRepository->getAllProducts();
     }
-
     public function CreateProductForm(Request $request) {
         return view('management.CreateProduct');
     }
-
     public function InsertProduct(ProductRequest $request) {
-        return  $request->all();
+
+        // $insetProductData = [
+        //     'nome' => $request->nome,
+        //     'valor' => $request->valor,
+        //     'descricao' => $request->descricao,
+        //     'img' => $request->img,
+        //     'categoria' => $request->categoria,
+        //     'estoque' => $request->estoque,
+        // ];
+
+        return $request->all();
     }
-
 }
-
 
 

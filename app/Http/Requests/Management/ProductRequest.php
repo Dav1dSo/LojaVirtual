@@ -13,7 +13,6 @@ class ProductRequest extends FormRequest
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -25,19 +24,18 @@ class ProductRequest extends FormRequest
             'nome' => 'required|max:150',
             'valor' => 'required',
             'descricao' => 'required|max:255',
-            'imagem' => 'required|mimes:jpg,jpeg,png|file',
+            // 'img' => '',
             'categoria' => 'required|not_in:0',
             'estoque' => 'required|integer'
         ];
     }
-
     public function messages() {
         return [
             'nome.required' => 'Nome deve ser informado!',
             'nome.max' => 'Nome muito longo!',
             'valor.required' => 'Valor deve ser informado!',
             'descricao.required' => 'Insira uma descrição.',
-            'imagem' => 'Arquivo inválido!',  
+            'img' => 'Arquivo inválido!',  
             'categoria' => 'Selecione a categoria do produto.',
             'estoque.required' => 'Informe a quantidade no estoque.'
         ];
