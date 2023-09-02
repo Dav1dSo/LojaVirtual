@@ -26,16 +26,24 @@ class ProductsController extends Controller
     }
     public function InsertProduct(ProductRequest $request) {
 
-        // $insetProductData = [
-        //     'nome' => $request->nome,
-        //     'valor' => $request->valor,
-        //     'descricao' => $request->descricao,
-        //     'img' => $request->img,
-        //     'categoria' => $request->categoria,
-        //     'estoque' => $request->estoque,
-        // ];
+        $insetProductData = [
+            'nome' => $request->nome,
+            'valor' => $request->valor,
+            'descricao' => $request->descricao,
+            'imagem' => $request->imagem,
+            'categoria' => $request->categoria,
+            'estoque' => $request->estoque,
+        ];
 
-        return $request->all();
+        if(!empty($insetProductData['imagem']) && $insetProductData['imagem']){ 
+            $file = $insetProductData['imagem'];
+            $path = $file->store('public/img/Products');
+            $insetProductData['imagem'] = $path; 
+        }
+
+        $this->ProductsRepository->createProduct($insetProductData);
+
+        return $insetProductData;
     }
 }
 

@@ -52,8 +52,7 @@
                 </div>
                 <div class="form-group">
                     <label for="descricao">Descrição</label>
-                    <textarea class="form-control @error('descricao') is-invalid @enderror" id="descricao"
-                        placeholder="Descrição do produto:" rows="4" name="descricao">{{ old('descricao') }}</textarea>
+                    <textarea class="form-control @error('descricao') is-invalid @enderror" id="descricao" placeholder="Descrição do produto:" rows="4" name="descricao">{{ old('descricao') }}</textarea>
                     @error('descricao')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -61,7 +60,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="imagem">Imagem</label>
-                        <input type="file" class="form-control @error('imagem') is-invalid @enderror" id="imagem" name="imagem">
+                        <input value="{{ old('imagem') }}" type="file" class="form-control  @error('imagem') is-invalid @enderror " id="imagem" name="imagem">
                         @error('imagem')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror

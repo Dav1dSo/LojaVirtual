@@ -24,7 +24,7 @@ class ProductRequest extends FormRequest
             'nome' => 'required|max:150',
             'valor' => 'required',
             'descricao' => 'required|max:255',
-            // 'img' => '',
+            'imagem' => 'required|image|file',
             'categoria' => 'required|not_in:0',
             'estoque' => 'required|integer'
         ];
@@ -35,7 +35,7 @@ class ProductRequest extends FormRequest
             'nome.max' => 'Nome muito longo!',
             'valor.required' => 'Valor deve ser informado!',
             'descricao.required' => 'Insira uma descrição.',
-            'img' => 'Arquivo inválido!',  
+            'imagem' => 'Arquivo inválido!',  
             'categoria' => 'Selecione a categoria do produto.',
             'estoque.required' => 'Informe a quantidade no estoque.'
         ];
