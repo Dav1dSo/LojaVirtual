@@ -19,9 +19,12 @@ Route::middleware('auth')->group(function () {
 Route::get('/areaAdministrativa', [ProductsController::class, 'index'])->middleware(['auth', 'verified'])->name('management');
 Route::get('/newProduct',[ProductsController::class, 'CreateProductForm'])->middleware(['auth', 'verified'])->name('new_product');
 Route::post('/createProduct',[ProductsController::class, 'InsertProduct'])->middleware(['auth', 'verified'])->name('insert_product');
+Route::get('/product/edit/{id}', [ProductsController::class, 'EditeProductForm'])->middleware(['auth', 'verified'])->name('edite_product');
+
+
 
 // ------------ -----  DataTables  -----  --------------
 
-Route::get('/products/list', [ManagementDatatable::class, 'GetProducts'])->middleware(['auth', 'verified'])->name('products.list');
+Route::any('/products/list', [ManagementDatatable::class, 'GetProducts'])->middleware(['auth', 'verified'])->name('products.list');
 
 require __DIR__.'/auth.php';
