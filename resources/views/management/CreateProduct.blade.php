@@ -22,10 +22,9 @@
 <body>
 
     @include('includes.navbar')
-    <div id="form_create" class="container w-50 p-4">
+    <div id="form_create" class="container w-75 p-4">
         <div class="col-lg-12 my-3">
-            <h1 class="text-center"><a class="navbar-brand" href="/">FULL<strong
-                        class="text-info">Ecommerce</strong></a></h1>
+            <h1 class="text-center"><a class="navbar-brand" href="/">FULL<strong class="text-info">Ecommerce</strong></a></h1>
             <p class="text-center lead">Novo produto</p>
         </div>
         <div class="d-flex justify-content-center">

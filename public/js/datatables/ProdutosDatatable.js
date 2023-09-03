@@ -48,7 +48,7 @@ $(function () {
 
 $(document).on('click', '.edit', function(event) {
     event.preventDefault();
-    var id = $(this).attr('id'); alert(id);
+    var id = $(this).attr('id');
 
     $.ajax({
 
@@ -57,9 +57,9 @@ $(document).on('click', '.edit', function(event) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
-        dataType: 'json',
+        // dataType: 'json',
         success: function(data) {
-            console.log(data);
+            console.log(data);  
         }
     });
 });

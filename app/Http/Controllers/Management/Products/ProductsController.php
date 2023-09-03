@@ -43,7 +43,7 @@ class ProductsController extends Controller
 
         $this->ProductsRepository->createProduct($insetProductData);
 
-        return $insetProductData;
+        return redirect('/products/list');
     }
                     
     public function EditeProductForm($id) {
