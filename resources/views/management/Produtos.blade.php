@@ -34,103 +34,22 @@
         </table>
     </div>
 
-
-    <!-- Button trigger modal -->
-    {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Launch demo modal
-    </button> --}}
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                      </svg>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    
                     {{-- FORM --}}
-
-                    <div id="form_create" class="container p-4">
-                        <div class="col-lg-12 my-3">
-                            <h1 class="text-center"><a class="navbar-brand" href="/">FULL<strong class="text-info">Ecommerce</strong></a></h1>
-                            <p class="text-center lead">Novo produto</p>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <form method="POST" action="{{ route('insert_product') }}" enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="nome">Nome</label>
-                                        <input value="{{ old('nome') }}" type="text"
-                                            class="form-control @error('nome') is-invalid @enderror " id="nome"
-                                            placeholder="Nome do produto:" name="nome">
-                                        @error('nome')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="valor">Valor</label>
-                                        <input value="{{ old('valor') }}" type="text" class="form-control  @error('valor') is-invalid @enderror " id="valor"
-                                            placeholder="Valor R$:" name="valor">
-                                        @error('valor')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="descricao">Descrição</label>
-                                    <textarea class="form-control @error('descricao') is-invalid @enderror" id="descricao" placeholder="Descrição do produto:" rows="4" name="descricao">{{ old('descricao') }}</textarea>
-                                    @error('descricao')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="imagem">Imagem</label>
-                                        <input value="{{ old('imagem') }}" type="file" class="form-control  @error('imagem') is-invalid @enderror " id="imagem" name="imagem">
-                                        @error('imagem')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="categoria">Categoria</label>
-                                        <select value="{{ old('categoria') }}" id="categoria" class="form-control @error('categoria') is-invalid @enderror" name="categoria">
-                                            @if (old('categoria'))
-                                                <option value="{{ old('categoria') }}" >{{ old('categoria') }}</option>
-                                            @endif
-                                            <option value="0">Selecione...</option>
-                                            <option value="Eletrônico" >Eletrônico</option>
-                                            <option value="Roupa" >Roupa</option>
-                                            <option value="Alimento" >Alimento</option>
-                                            <option value="Bijoteria" >Bijoteria</option>
-                                            <option value="Calçado" >Calçado</option>
-                                        </select>
-                                        @error('categoria')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="estoque">Estoque</label>
-                                        <input value="{{ old('estoque') }}" type="number" class="form-control @error('estoque') is-invalid @enderror" id="estoque"
-                                            placeholder="0" name="estoque">
-                                        @error('estoque')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                   @include('management.EditProduct')
                 </div>
             </div>
         </div>
