@@ -59,7 +59,12 @@ $(document).on('click', '.edit', function(event) {
           },
         // dataType: 'json',
         success: function(data) {
-            console.log(data);  
+            console.log(data); 
+            $('#nome').val(data.nome), 
+            $('#valor').val(data.valor), 
+            $('#descricao').val(data.descricao), 
+            $('#estoque').val(data.estoque),
+            $("#categoria option:selected").text(data.categoria)
         }
     });
 });

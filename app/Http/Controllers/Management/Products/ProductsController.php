@@ -47,9 +47,7 @@ class ProductsController extends Controller
     }
                     
     public function EditeProductForm($id) {
-
         $productFind = $this->ProductsRepository->getProductById($id);
-
         return $productFind;
 
     }
