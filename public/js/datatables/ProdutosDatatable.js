@@ -59,15 +59,7 @@ $(document).on('click', '.edit', function(event) {
           },
         // dataType: 'json',
         success: function(data) {;
-            
-            if ($('#imagem')[0].files[0] !== undefined) {
-                var nameImage = $('#imagem')[0].files[0].name;
-                $('#imagem').val(nameImage);
-            }else{
-                $('#imagem').text(data.imagem);
-            }
-            
-            console.log(nameImage);
+            $('#imagem').html(data.imagem), 
             $('#nome').val(data.nome), 
             $('#valor').val(data.valor), 
             $('#descricao').val(data.descricao), 

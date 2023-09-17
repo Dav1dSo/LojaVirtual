@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->integer('estoque')->nullable()->default(0);
             $table->string('descricao')->nullable();
             $table->string('categoria')->nullable();
-            $table->string('imagem')->default('');
             $table->timestamps();
         });
     }

@@ -21,10 +21,11 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'required|max:150',
+            'nome' => 'required|max:100',
             'valor' => 'required',
             'descricao' => 'required|max:255',
-            'imagem' => 'required|image|file',
+            'imagem' => 'required',
+            'imagem.*' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
             'categoria' => 'required|not_in:0',
             'estoque' => 'required|integer'
         ];

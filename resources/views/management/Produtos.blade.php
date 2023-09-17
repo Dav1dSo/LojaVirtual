@@ -55,8 +55,6 @@
         </div>
     </div>
 </body>
-@include('includes.scriptsbootstrap')
-<script src="{{ asset('js/datatables/ProdutosDatatable.js') }}"></script>
-{{-- <script type="text/javascript" src="https://gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script> --}}
-
+    @include('includes.scriptsbootstrap')
+    <script src="{{ asset('js/datatables/ProdutosDatatable.js') }}"></script>
 </html>
