@@ -58,13 +58,21 @@ $(document).on('click', '.edit', function(event) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
         // dataType: 'json',
-        success: function(data) {;
-            $('#imagem').html(data.imagem), 
+        success: function(data) {
+            console.log(data);
+
+            //  for (let i = 0; i < data.length; i++) {
+            //     console.log(i)
+            //  }
+
             $('#nome').val(data.nome), 
             $('#valor').val(data.valor), 
             $('#descricao').val(data.descricao), 
             $('#estoque').val(data.estoque),
             $("#categoria option:selected").text(data.categoria)
         }
+
+
+
     });
 });

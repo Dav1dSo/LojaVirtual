@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('images_products', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('idProduct');
+            $table->unsignedBigInteger('products_id');
             $table->string('path');
             $table->timestamps();
 
-            $table->foreign('idProduct')->references('id')->on('products');
+            $table->foreign('products_id')->references('id')->on('products');
         });
     }
 
@@ -27,7 +27,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('images_products');
-        $table->foreignId('idProduct')->constrained()->onDelete('cascade');
-
+        $table->foreignId('products_id')->constrained()->onDelete('cascade');
     }
 };

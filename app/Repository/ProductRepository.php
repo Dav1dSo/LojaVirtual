@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Interfaces\ProductsRepositoryInterface;
 use App\Models\Products;
+use Illuminate\Support\Facades\DB;
 
 class ProductRepository implements ProductsRepositoryInterface
 {
@@ -14,7 +15,7 @@ class ProductRepository implements ProductsRepositoryInterface
 
     public function getProductById($id) 
     {
-        return Products::findOrFail($id);
+        return DB::table('view_products')->find($id);
     }
 
     public function deleteProduct($id) 

@@ -25,6 +25,7 @@ class ProductsController extends Controller
     public function CreateProductForm(Request $request) {
         return view('management.CreateProduct');
     }
+    
     public function InsertProduct(ProductRequest $request) {
                
         $insetProductData = [
@@ -35,7 +36,7 @@ class ProductsController extends Controller
             'estoque' => $request->estoque,
         ];
         
-        // $this->ProductsRepository->createProduct($insetProductData);
+        $this->ProductsRepository->createProduct($insetProductData);
         
         if(!empty($request->imagem) && $request->imagem){ 
             $imagesProducts = new ImagesProducts();
@@ -46,21 +47,20 @@ class ProductsController extends Controller
                 $filepath = $fileImage->store('public/img/Products');
                 
                 $insertImageProduct = [
-                    'idProduct' => 1,
+                    'products_id' => 2,
                     'path' => $filepath,
                 ];
                 
                 $imagesProducts::create($insertImageProduct);
-                dd($insertImageProduct);
             }
         }
 
-
-        return redirect('/products/list');
+        return redirect('/areaAdministrativa');
     }
                     
     public function EditeProductForm($id) {
         $productFind = $this->ProductsRepository->getProductById($id);
+
         return response()->json($productFind);
 
     }

@@ -69,16 +69,16 @@
                           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
-                          <div class="carousel-item active">
+                          <div class="carousel-item active" id="CarrosselImage">
                             <img class="d-block w-100" src="{{ asset("storage/img/Products/tLA7qmCXt3sC4w74srfqzLRwOP9E8cqQbtm7iI4F.jpg") }}" alt="First slide">
                           </div>
-                          <div class="carousel-item">
+                          {{-- <div class="carousel-item">
                             <img class="d-block w-100" src="{{ asset("storage/img/Products/tLA7qmCXt3sC4w74srfqzLRwOP9E8cqQbtm7iI4F.jpg") }}" alt="Second slide">
                           </div>
                           <div class="carousel-item">
                             <img class="d-block w-100" src="{{ asset("storage/img/Products/tLA7qmCXt3sC4w74srfqzLRwOP9E8cqQbtm7iI4F.jpg") }}" alt="Third slide">
                           </div>
-                        </div>
+                        </div> --}}
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                           <span class="sr-only">Previous</span>
@@ -89,7 +89,6 @@
                         </a>
                       </div>
 
-                    {{-- <img src="{{ asset("storage/img/Products/tLA7qmCXt3sC4w74srfqzLRwOP9E8cqQbtm7iI4F.jpg") }}" alt=""> --}}
                     <input id="imagem" name="imagem[]" type="file" class="form-control mt-4 @error('imagem') is-invalid @enderror" multiple>
                     @error('imagem')
                         <p class="text-danger">{{ $message }}</p>
