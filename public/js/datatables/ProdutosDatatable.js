@@ -66,7 +66,7 @@ $(document).on('click', '.edit', function(event) {
             $('#descricao').val(data.descricao), 
             $('#estoque').val(data.estoque),
             $("#categoria option:selected").text(data.categoria),
-            $("#ImageProduct").attr("src", "storage/" + data.imagem)
+            $("#img").attr("src", "storage/" + data.imagem)
         }
 
     });

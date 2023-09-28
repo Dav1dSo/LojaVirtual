@@ -13,7 +13,7 @@ class ProductsController extends Controller
 
     private ProductsRepositoryInterface $ProductsRepository;
 
-    public function __construct(ProductsRepositoryInterface $ProductsRepository) 
+    public function __construct(ProductsRepositoryInterface $ProductsRepository)
     {
         $this->ProductsRepository = $ProductsRepository;
     }
@@ -25,9 +25,9 @@ class ProductsController extends Controller
     public function CreateProductForm(Request $request) {
         return view('management.CreateProduct');
     }
-    
+
     public function InsertProduct(ProductRequest $request) {
-               
+
         $insetProductData = [
             'nome' => $request->nome,
             'valor' => $request->valor,
@@ -35,29 +35,29 @@ class ProductsController extends Controller
             'categoria' => $request->categoria,
             'estoque' => $request->estoque,
         ];
-        
+
         $this->ProductsRepository->createProduct($insetProductData);
-        
-        if(!empty($request->imagem) && $request->imagem){ 
+
+        if(!empty($request->imagem) && $request->imagem){
             $imagesProducts = new ImagesProducts();
-            
+
             $imagesRequest = $request->allFiles()['imagem'];
-            
+
             foreach ($imagesRequest as $fileImage) {
-                $filepath = $fileImage->store('/img/Products');
-                
+                $filepath = $fileImage->store('img/Products', 'public');
+
                 $insertImageProduct = [
                     'products_id' => 1,
                     'path' => $filepath,
                 ];
-                
+
                 $imagesProducts::create($insertImageProduct);
             }
         }
 
         return redirect('/areaAdministrativa');
     }
-                    
+
     public function EditeProductForm($id) {
         $productFind = $this->ProductsRepository->getProductById($id);
 

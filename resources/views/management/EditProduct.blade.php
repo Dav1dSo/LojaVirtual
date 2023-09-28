@@ -62,7 +62,7 @@
                 <div class="form-group col-md-12">
                     <label for="imagem">Imagem</label>
                     <div class="text-center">
-                        <img id="ImageProduct" class="d-block w-100" src="" alt="First slide">
+                        <img id="img" class="d-block w-100" src="" alt="First slide">
                       </div>
                     <input id="imagem" name="imagem[]" type="file" class="form-control mt-4 @error('imagem') is-invalid @enderror" multiple>
                     @error('imagem')
