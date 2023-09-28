@@ -61,18 +61,13 @@ $(document).on('click', '.edit', function(event) {
         success: function(data) {
             console.log(data);
 
-            //  for (let i = 0; i < data.length; i++) {
-            //     console.log(i)
-            //  }
-
             $('#nome').val(data.nome), 
             $('#valor').val(data.valor), 
             $('#descricao').val(data.descricao), 
             $('#estoque').val(data.estoque),
-            $("#categoria option:selected").text(data.categoria)
+            $("#categoria option:selected").text(data.categoria),
+            $("#ImageProduct").attr("src", "storage/" + data.imagem)
         }
-
-
 
     });
 });

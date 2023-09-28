@@ -44,10 +44,10 @@ class ProductsController extends Controller
             $imagesRequest = $request->allFiles()['imagem'];
             
             foreach ($imagesRequest as $fileImage) {
-                $filepath = $fileImage->store('public/img/Products');
+                $filepath = $fileImage->store('/img/Products');
                 
                 $insertImageProduct = [
-                    'products_id' => 2,
+                    'products_id' => 1,
                     'path' => $filepath,
                 ];
                 
