@@ -41,7 +41,7 @@
                     <div class="form-group col-md-6">
                         <label for="valor">Valor</label>
                         <input value="{{ old('valor') }}" type="text" class="form-control  @error('valor') is-invalid @enderror " id="valor"
-                            placeholder="Valor R$:" name="valor">
+                            placeholder="R$:" name="valor">
                         @error('valor')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
@@ -96,5 +96,6 @@
     </div>
 </body>
 @include('includes.scriptsbootstrap')
-
 </html>
+
+<script src="{{ asset('js\Helpers/Mask/Masks.js') }}"></script>

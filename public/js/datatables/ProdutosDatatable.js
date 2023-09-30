@@ -62,12 +62,11 @@ $(document).on('click', '.edit', function(event) {
             console.log(data);
 
             $('#nome').val(data.nome), 
-            $('#valor').val(data.valor), 
             $('#descricao').val(data.descricao), 
             $('#estoque').val(data.estoque),
             $("#categoria option:selected").text(data.categoria),
-            $("#img").attr("src", "storage/" + data.imagem)
+            $("#img").attr("src", "storage/" + data.imagem),
+            $('#valor').val("R$ " + data.valor)
         }
-
     });
 });
