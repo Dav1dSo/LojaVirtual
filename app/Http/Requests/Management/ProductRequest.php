@@ -23,7 +23,7 @@ class ProductRequest extends FormRequest
         return [
             'nome' => 'required|max:100',
             'valor' => 'required',
-            'descricao' => 'required|max:255',
+            'descricao' => 'required|max:2000',
             'imagem' => 'required',
             'imagem.*' => 'image|mimes:jpeg,png,jpg,svg|max:2048',
             'categoria' => 'required|not_in:0',
@@ -36,6 +36,7 @@ class ProductRequest extends FormRequest
             'nome.max' => 'Nome muito longo!',
             'valor.required' => 'Valor deve ser informado!',
             'descricao.required' => 'Insira uma descrição.',
+            'descricao.max' => 'Descrição muito longa!',
             'imagem' => 'Arquivo inválido!',  
             'categoria' => 'Selecione a categoria do produto.',
             'estoque.required' => 'Informe a quantidade no estoque.'
