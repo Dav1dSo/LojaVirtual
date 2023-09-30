@@ -7,6 +7,7 @@ use App\Http\Requests\Management\ProductRequest;
 use App\Interfaces\ProductsRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Models\ImagesProducts;
+use App\Models\Products;
 
 class ProductsController extends Controller
 {
@@ -39,6 +40,13 @@ class ProductsController extends Controller
         $this->ProductsRepository->createProduct($insetProductData);
 
         if(!empty($request->imagem) && $request->imagem){
+
+            $newProduct = new Products();
+
+            $latestProduct = $newProduct::orderBy('id', 'desc')->first();
+
+            $idProduct = $latestProduct->id;
+
             $imagesProducts = new ImagesProducts();
 
             $imagesRequest = $request->allFiles()['imagem'];
@@ -47,7 +55,7 @@ class ProductsController extends Controller
                 $filepath = $fileImage->store('img/Products', 'public');
 
                 $insertImageProduct = [
-                    'products_id' => 1,
+                    'products_id' => $idProduct,
                     'path' => $filepath,
                 ];
 
