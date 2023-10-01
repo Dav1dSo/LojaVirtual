@@ -66,7 +66,8 @@ $(document).on('click', '.edit', function(event) {
             $('#estoque').val(data.estoque),
             $("#categoria option:selected").text(data.categoria),
             $("#img").attr("src", "storage/" + data.imagem),
-            $('#valor').val("R$ " + data.valor)
+            $('#valor').val("R$ " + data.valor),
+            $("#GalleryButton").attr("href", "/galleyProducts/edit/" + data.id)
         }
     });
 });

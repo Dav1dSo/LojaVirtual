@@ -40,6 +40,6 @@ class ProductRepository implements ProductsRepositoryInterface
 
     public function GetImagesProducts($id)
     {
-        return DB::table('view_images_products')->find($id);
+        return DB::table('view_images_products')->where('products_id', $id)->get();
     }
 }

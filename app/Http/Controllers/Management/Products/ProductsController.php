@@ -72,8 +72,9 @@ class ProductsController extends Controller
     }
 
 
-    public function EditeImagesProducts() {
-        $gallery = $this->ProductsRepository->GetImagesProducts($id);
+    public function GalleryProducts($id) {
+       $gallery = $this->ProductsRepository->GetImagesProducts($id);
+       return $gallery;
     }
 
 }

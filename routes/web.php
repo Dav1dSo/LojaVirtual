@@ -20,7 +20,7 @@ Route::get('/areaAdministrativa', [ProductsController::class, 'index'])->middlew
 Route::get('/newProduct',[ProductsController::class, 'CreateProductForm'])->middleware(['auth', 'verified'])->name('new_product');
 Route::post('/createProduct',[ProductsController::class, 'InsertProduct'])->middleware(['auth', 'verified'])->name('insert_product');
 Route::get('/product/edit/{id}', [ProductsController::class, 'EditeProductForm'])->middleware(['auth', 'verified'])->name('edite_product');
-
+Route::get('/galleyProducts/edit/{id}', [ProductsController::class, 'GalleryProducts'])->middleware(['auth', 'verified'])->name('edite_product');
 
 
 // ------------ -----  DataTables  -----  --------------
