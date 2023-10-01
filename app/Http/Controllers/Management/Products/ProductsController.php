@@ -71,10 +71,10 @@ class ProductsController extends Controller
         return response()->json($productFind);
     }
 
-
     public function GalleryProducts($id) {
-       $gallery = $this->ProductsRepository->GetImagesProducts($id);
-       return view('management.GalleryProducts');
+       $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
+       
+       return view('management.GalleryProducts', ['gallery' => $gallery]);
     }
 
 }

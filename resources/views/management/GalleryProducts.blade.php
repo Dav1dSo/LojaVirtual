@@ -17,10 +17,13 @@
 <body>
     @include('includes.navbar')
     
+    
     <div class="row row-cols-1 row-cols-md-4 p-5" id="wrap">
+
+        @foreach ($gallery as $imageProduct)
         <div class="col-md-3 mb-5">
             <div class="card h-100">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6qcJpM-dzt6YKy8QOg9-nhGaV24iq0n2v3SFi8Y-pQx7cAGR0WqGQSD-MTiVo4uDNK9w&usqp=CAU" class="card-img-top" alt="...">
+                <img src="{{ url("storage/$imageProduct->imagem") }}" class="card-img-top h-75" alt="...">
             <div class="p-3 d-flex justify-content-end">
                 <button type="button" class="btn btn-success">Editar</button>
                 <button type="button" class="btn btn-danger ms-2">Excluir</button>
@@ -30,6 +33,7 @@
             </div>
             </div>
         </div>
+        @endforeach
     </div>
 
 </body>
