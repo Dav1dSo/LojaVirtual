@@ -74,7 +74,7 @@ class ProductsController extends Controller
 
     public function GalleryProducts($id) {
        $gallery = $this->ProductsRepository->GetImagesProducts($id);
-       return $gallery;
+       return view('management.GalleryProducts');
     }
 
 }

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Laravel 8|7 Datatables Tutorial</title>
+    <title>Área Administrativa</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('includes.headerbootstrap')
 </head>
