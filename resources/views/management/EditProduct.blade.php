@@ -59,7 +59,7 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="form-group col-md-12">
+                {{-- <div class="form-group col-md-12">
                     <label for="imagem">Imagem</label>
                     <div class="text-center">
                         <img id="img" class="d-block w-100" src="" alt="First slide">
@@ -68,6 +68,15 @@
                     @error('imagem')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
+                </div> --}}
+                <div class="form-group col-md-12">
+                    <label for="imagem">Imagem</label>
+                    <div class="text-center">
+                        <img id="img" class="d-block w-100 rounded-3" src="" alt="First slide">
+                      </div>
+                      <div class="d-grid gap-2 mt-3">
+                        <a href="" class="btn btn-success">Ver galeria</a>
+                      </div>
                 </div>
             </div>
             <div class="modal-footer">

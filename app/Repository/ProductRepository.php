@@ -37,4 +37,9 @@ class ProductRepository implements ProductsRepositoryInterface
     {
         return Products::where('is_fulfilled', true);
     }
+
+    public function GetImagesProducts($id)
+    {
+        return DB::table('view_images_products')->find($id);
+    }
 }

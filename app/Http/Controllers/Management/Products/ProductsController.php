@@ -68,10 +68,14 @@ class ProductsController extends Controller
 
     public function EditeProductForm($id) {
         $productFind = $this->ProductsRepository->getProductById($id);
-
         return response()->json($productFind);
-
     }
+
+
+    public function EditeImagesProducts() {
+        $gallery = $this->ProductsRepository->GetImagesProducts($id);
+    }
+
 }
 
 
