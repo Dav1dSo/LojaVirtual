@@ -30,7 +30,7 @@
                 <div class="card h-100">
                     <img src="{{ url("storage/$imageProduct->imagem") }}" class="card-img-top imgProduct" alt="...">
                     <div class="p-3 d-flex justify-content-end">
-                        <div class="d-none AfterClick">
+                        <div class="d-none AfterClick{{ $imageProduct->id }}">
                             <div class="d-flex d-flex justify-content-end">
                                 <input value="{{ old('imagem') }}" type="file"
                                     class="form-control @error('imagem') is-invalid @enderror " id="imagem"
@@ -41,9 +41,9 @@
                                 <div><button type="button" class="btn btn-success ms-2">Editar</button></div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-success BeforeClick"
-                            onclick="ClickEdite()">Editar</button>
-                        <button type="button" class="btn btn-danger ms-2 BeforeClick">Excluir</button>
+                        <button type="button" class="btn btn-success BeforeClick{{ $imageProduct->id }}"
+                            onclick="ClickEdite({{ $imageProduct->id }})">Editar</button>
+                        <button type="button" class="btn btn-danger ms-2 BeforeClick{{ $imageProduct->id }}">Excluir</button>
                     </div>
                     <div class="card-footer">
                         <small class="text-body-secondary">Atualizado em {{ $imageProduct->atualizado }}</small>
@@ -59,11 +59,11 @@
 </html>
 
 <script>
-    function ClickEdite() {
-        const elements = $(".BeforeClick");
+    function ClickEdite(id) {
+        const elements = $(".BeforeClick" + id);
         elements.attr('class', 'd-none');
 
-        const edit = $(".AfterClick");
+        const edit = $(".AfterClick" + id);
         edit.attr('class', 'd-block')
     }
 </script>
