@@ -32,17 +32,18 @@
                     <div class="p-3 d-flex justify-content-end">
                         <div class="d-none AfterClick{{ $imageProduct->id }}">
                             <div class="d-flex d-flex justify-content-end">
-                                <input value="{{ old('imagem') }}" type="file"
-                                    class="form-control @error('imagem') is-invalid @enderror " id="imagem"
-                                    name="imagem[]" multiple>
+                                <input value="{{ old('imagem') }}" type="file"class="form-control @error('imagem') is-invalid @enderror " id="imagem" 
+                                name="imagem[]" multiple>
                                 @error('imagem')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
-                                <div><button type="button" class="btn btn-success ms-2">Editar</button></div>
+                                <div class="d-flex">
+                                    <button type="button" class="btn btn-secondary ms-2" onclick="BackEdit({{ $imageProduct->id }})">Voltar</button>
+                                    <button type="button" class="btn btn-success ms-2">Editar</button>
+                                </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-success BeforeClick{{ $imageProduct->id }}"
-                            onclick="ClickEdite({{ $imageProduct->id }})">Editar</button>
+                        <button type="button" class="btn btn-success BeforeClick{{ $imageProduct->id }}" onclick="ClickEdite({{ $imageProduct->id }})">Editar</button>
                         <button type="button" class="btn btn-danger ms-2 BeforeClick{{ $imageProduct->id }}">Excluir</button>
                     </div>
                     <div class="card-footer">
@@ -60,10 +61,18 @@
 
 <script>
     function ClickEdite(id) {
-        const elements = $(".BeforeClick" + id);
-        elements.attr('class', 'd-none');
+        const element = $(".BeforeClick" + id);
+        element.addClass("d-none");
 
         const edit = $(".AfterClick" + id);
-        edit.attr('class', 'd-block')
+        edit.removeClass("d-none").addClass("d-block");
+    };
+
+    function BackEdit(id) {
+        const edit = $(".AfterClick" + id);
+        edit.removeClass("d-block").addClass("d-none");
+
+        const element = $(".BeforeClick" + id);
+        element.removeClass("d-none");        
     }
 </script>
