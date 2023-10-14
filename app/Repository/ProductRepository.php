@@ -42,4 +42,9 @@ class ProductRepository implements ProductsRepositoryInterface
     {
         return DB::table('view_images_products')->where('products_id', $id)->get();
     }
-}
+
+    public function updateImageProduct($id, array $updateImageProduct){
+        return DB::table('images_products')->where('id', $id)->update($updateImageProduct);
+    }
+
+}   

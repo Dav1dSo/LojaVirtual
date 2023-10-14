@@ -58,7 +58,7 @@
                     <div class="form-group col-md-6">
                         <label for="imagem">Imagem</label>
                         <input value="{{ old('imagem') }}" type="file" class="form-control @error('imagem') is-invalid @enderror " id="imagem" name="imagem[]" multiple>
-                        @error('imagem')
+                        @error('imagem')    
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>

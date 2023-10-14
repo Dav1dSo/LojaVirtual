@@ -9,21 +9,24 @@ Route::get('/', function () {
     return view('home');
 });
 
+// --------------- -----  Profile  -----  ----------------
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Management
+// --------------- -----  Management  -----  ----------------
+
 Route::get('/areaAdministrativa', [ProductsController::class, 'index'])->middleware(['auth', 'verified'])->name('management');
 Route::get('/newProduct',[ProductsController::class, 'CreateProductForm'])->middleware(['auth', 'verified'])->name('new_product');
 Route::post('/createProduct',[ProductsController::class, 'InsertProduct'])->middleware(['auth', 'verified'])->name('insert_product');
 Route::get('/product/edit/{id}', [ProductsController::class, 'EditeProductForm'])->middleware(['auth', 'verified'])->name('edite_product');
-Route::get('/galleyProducts/edit/{id}', [ProductsController::class, 'GalleryProducts'])->middleware(['auth', 'verified'])->name('edite_product');
+Route::get('/galleyProducts/edit/{id}', [ProductsController::class, 'GalleryProducts'])->middleware(['auth', 'verified'])->name('edite_imagem');
+Route::any('/galleyProducts/update/{id}', [ProductsController::class, 'GalleryProductsUpdate'])->middleware(['auth', 'verified'])->name('update_imagem');
 
-
-// ------------ -----  DataTables  -----  --------------
+// --------------- -----  DataTables  -----  ----------------
 
 Route::any('/products/list', [ManagementDatatable::class, 'GetProducts'])->middleware(['auth', 'verified'])->name('products.list');
 

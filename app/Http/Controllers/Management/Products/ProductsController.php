@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Management\Products;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Management\ProductRequest;
+use App\Http\Requests\Management\ImagesProductsRequest;
 use App\Interfaces\ProductsRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Models\ImagesProducts;
@@ -42,13 +43,9 @@ class ProductsController extends Controller
         if(!empty($request->imagem) && $request->imagem){
 
             $newProduct = new Products();
-
             $latestProduct = $newProduct::orderBy('id', 'desc')->first();
-
             $idProduct = $latestProduct->id;
-
             $imagesProducts = new ImagesProducts();
-
             $imagesRequest = $request->allFiles()['imagem'];
 
             foreach ($imagesRequest as $fileImage) {
@@ -77,6 +74,16 @@ class ProductsController extends Controller
        return view('management.GalleryProducts', ['gallery' => $gallery]);
     }
 
+    public function GalleryProductsUpdate($id, ImagesProductsRequest $request) { 
+        if($request->hasFile('imagem') && $request->imagem) {
+            foreach ($request->file('imagem') as $imagem) {
+                $prepareImagem = $imagem->store('img/Products', 'public');
+                $uploadImage = ['path' => $prepareImagem];
+            }
+        }
+        $this->ProductsRepository->updateImageProduct($id, $uploadImage);
+        return redirect()->back();
+    }
 }
 
 

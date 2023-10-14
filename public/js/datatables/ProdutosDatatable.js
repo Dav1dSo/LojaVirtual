@@ -59,8 +59,6 @@ $(document).on('click', '.edit', function(event) {
           },
         // dataType: 'json',
         success: function(data) {
-            console.log(data);
-
             $('#nome').val(data.nome), 
             $('#descricao').val(data.descricao), 
             $('#estoque').val(data.estoque),
