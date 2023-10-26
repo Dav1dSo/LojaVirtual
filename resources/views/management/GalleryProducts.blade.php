@@ -46,8 +46,10 @@
                         </div>
                         <button type="button" class="btn btn-success BeforeClick{{ $imageProduct->id }}"
                             onclick="ClickEdite({{ $imageProduct->id }})">Editar</button>
-                        <button type="button"
-                            class="btn btn-danger ms-2 BeforeClick{{ $imageProduct->id }}">Excluir</button>
+                            <form method="post" action="/galleyProducts/delete/{{ $imageProduct->id }}">
+                                @csrf
+                                <button type="submit" class="btn btn-danger ms-2 BeforeClick{{ $imageProduct->id }}">Excluir</button>
+                            </form>
                     </div>
                     <div class="card-footer">
                         <small class="text-body-secondary">Atualizado em {{ $imageProduct->atualizado }}</small>
@@ -55,11 +57,10 @@
                 </div>
             </div>
         @endforeach
-    </div>
+    </div> 
 
 </body>
-@include('includes.scriptsbootstrap')
-
+    @include('includes.scriptsbootstrap')
 </html>
 
 <script>

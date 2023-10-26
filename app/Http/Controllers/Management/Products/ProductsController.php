@@ -84,6 +84,11 @@ class ProductsController extends Controller
         $this->ProductsRepository->updateImageProduct($id, $uploadImage);
         return redirect()->back();
     }
+
+    public function GalleryProductsDelete($idImage) {
+        $this->ProductsRepository->deleteImageProduct($idImage);
+        return redirect()->back();
+    }
 }
 
 

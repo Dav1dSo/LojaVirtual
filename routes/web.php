@@ -25,6 +25,7 @@ Route::post('/createProduct',[ProductsController::class, 'InsertProduct'])->midd
 Route::get('/product/edit/{id}', [ProductsController::class, 'EditeProductForm'])->middleware(['auth', 'verified'])->name('edite_product');
 Route::get('/galleyProducts/edit/{id}', [ProductsController::class, 'GalleryProducts'])->middleware(['auth', 'verified'])->name('edite_imagem');
 Route::any('/galleyProducts/update/{id}', [ProductsController::class, 'GalleryProductsUpdate'])->middleware(['auth', 'verified'])->name('update_imagem');
+Route::post('/galleyProducts/delete/{idImage}', [ProductsController::class, 'GalleryProductsDelete'])->middleware(['auth', 'verified'])->name('delete_imagem');
 
 // --------------- -----  DataTables  -----  ----------------
 

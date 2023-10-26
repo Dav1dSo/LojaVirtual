@@ -47,4 +47,7 @@ class ProductRepository implements ProductsRepositoryInterface
         return DB::table('images_products')->where('id', $id)->update($updateImageProduct);
     }
 
+    public function deleteImageProduct($idImage) {
+        return DB::table('images_products')->where('id', $idImage)->delete();
+    }
 }   
