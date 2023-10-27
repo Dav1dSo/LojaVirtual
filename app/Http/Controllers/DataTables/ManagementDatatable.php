@@ -14,10 +14,10 @@ class ManagementDatatable extends Controller
     {
         if ($request->ajax()) {
             $data = DB::table('products')->get();
-            return DataTables::of($data)
+            return dataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function ($row) {
-                    $actionBtn = '<a href="javascript:void(0)" class="btn btn-info text-white">Edit</a> <a href="javascript:void(0)" class="btn btn-danger">Delete</a>';
+                ->addColumn('action', function ($data) {
+                    $actionBtn = view('components.buttonsActions', ['id' => $data->id]);
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])

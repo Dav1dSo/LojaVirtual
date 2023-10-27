@@ -15,9 +15,8 @@ return new class extends Migration {
             $table->string('nome')->nullable();
             $table->string('valor')->nullable();
             $table->integer('estoque')->nullable()->default(0);
-            $table->string('descricao')->nullable();
+            $table->longText('descricao')->nullable();
             $table->string('categoria')->nullable();
-            $table->string('imagem')->default('');
             $table->timestamps();
         });
     }

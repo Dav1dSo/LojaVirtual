@@ -44,3 +44,28 @@ $(function () {
         // order: [[1, 'asc']]
     });
 });
+
+
+$(document).on('click', '.edit', function(event) {
+    event.preventDefault();
+    var id = $(this).attr('id');
+
+    $.ajax({
+
+        url: "/product/edit/"+id+"/",
+        data: $(this).serialize(),
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+        // dataType: 'json',
+        success: function(data) {
+            $('#nome').val(data.nome), 
+            $('#descricao').val(data.descricao), 
+            $('#estoque').val(data.estoque),
+            $("#categoria option:selected").text(data.categoria),
+            $("#img").attr("src", "storage/" + data.imagem),
+            $('#valor').val("R$ " + data.valor),
+            $("#GalleryButton").attr("href", "/galleyProducts/edit/" + data.id)
+        }
+    });
+});
