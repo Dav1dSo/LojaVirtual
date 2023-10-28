@@ -45,18 +45,11 @@ $(function () {
     });
 });
 
-
 $(document).on('click', '.edit', function(event) {
     event.preventDefault();
     var id = $(this).attr('id');
 
     $.ajax({
-
-        url: `/product/edit/${id}`,
-        data: $(this).serialize(),
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
         // dataType: 'json',
         success: function(data) {
             $('#formEdite').attr('action', "/editeProduct/" + data.id),

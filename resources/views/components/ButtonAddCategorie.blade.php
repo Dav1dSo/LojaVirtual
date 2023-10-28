@@ -12,17 +12,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <label for="NewCategorie">Acicionar Categoria</label>
-                <input value="{{ old('NewCategorie') }}" type="text"
-                    class="form-control @error('NewCategorie') is-invalid @enderror" id="NewCategorie"
-                    placeholder="Digite a nova Categoria:" name="NewCategorie">
-                @error('NewCategorie')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
-                <div class="d-flex justify-content-end mt-3">
-                    <button type="button" class="btn btn-secondary">Voltar</button>
-                    <button type="button" class="ms-2 btn btn-success" data-dismiss="modal">Enviar</button>
-                </div>
+                    <label for="NewCategorie">Acicionar Categoria</label>
+                    <input value="{{ old('NewCategorie') }}" type="text"
+                        class="form-control @error('NewCategorie') is-invalid @enderror" id="NewCategorie"
+                        placeholder="Digite a nova Categoria:" name="NewCategorie">
+                    @error('NewCategorie')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                    <div class="d-flex justify-content-end mt-3">
+                        <button type="button" class="btn btn-secondary">Voltar</button>
+                        <button type="button" class="ms-2 addCategorie btn btn-success">Enviar</button>
+                    </div>
             </div>
         </div>
     </div>

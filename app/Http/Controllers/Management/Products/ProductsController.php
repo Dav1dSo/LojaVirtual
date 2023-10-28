@@ -89,6 +89,15 @@ class ProductsController extends Controller
         return redirect()->back();
     }
 
+    public function AddCategorie(Request $request) {
+
+        $validated = $request->validate([
+            'NewCategorie' => 'required|max:25'
+        ]); 
+     
+        return $validated;
+    }
+
     public function GalleryProducts($id) {
        $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
        
