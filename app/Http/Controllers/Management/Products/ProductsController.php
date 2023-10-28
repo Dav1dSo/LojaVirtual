@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Management\Products;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Management\ProductRequest;
+use App\Http\Requests\Management\ProductEditeRequest;
 use App\Http\Requests\Management\ImagesProductsRequest;
 use App\Interfaces\ProductsRepositoryInterface;
 use Illuminate\Http\Request;
@@ -66,6 +67,21 @@ class ProductsController extends Controller
     public function EditeProductForm($id) {
         $productFind = $this->ProductsRepository->getProductById($id);
         return response()->json($productFind);
+    }
+
+    public function EditeProduct($id, ProductEditeRequest $request) {
+        
+        $EditeProductData = [
+            'nome' => $request->nome,
+            'valor' => $request->valor,
+            'descricao' => $request->descricao,
+            'categoria' => $request->categoria,
+            'estoque' => $request->estoque,
+        ];
+
+        $this->ProductsRepository->updateProduct($id, $EditeProductData);
+
+        return redirect()->back();
     }
 
     public function DeleteProduct($id) {

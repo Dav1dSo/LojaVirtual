@@ -95,7 +95,7 @@
         </div>
     </div>
 </body>
-@include('includes.scriptsbootstrap')
+    @include('includes.scriptsbootstrap')
 </html>
 
 <script src="{{ asset('js\Helpers/Mask/Masks.js') }}"></script>

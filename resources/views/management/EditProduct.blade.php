@@ -5,9 +5,9 @@
         <p class="text-center lead">Editar produto</p>
     </div>
     <div class="d-flex justify-content-center">
-        <form method="POST" action="{{ route('insert_product') }}" enctype="multipart/form-data">
+        <form method="POST" action="" id="formEdite" enctype="multipart/form-data">
             @csrf
-            <div class="form-row">
+            <div class="form-row">  
                 <div class="form-group col-md-6">
                     <label for="nome">Nome</label>
                     <input value="{{ old('nome') }}" type="text"
@@ -20,8 +20,7 @@
                 <div class="form-group col-md-6">
                     <label for="valor">Valor</label>
                     <input value="{{ old('valor') }}" type="text"
-                        class="form-control  @error('valor') is-invalid @enderror " id="valor"
-                        placeholder="Valor R$:" name="valor">
+                        class="form-control  @error('valor') is-invalid @enderror " id="valor" name="valor">
                     @error('valor')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -65,7 +64,7 @@
                         <img id="img" class="d-block w-100 rounded-3" src="" alt="First image">
                       </div>
                       <div class="d-grid gap-2 mt-3">
-                        <a id="GalleryButton" href="/galleyProducts/edit/1" class="btn btn-success">Ver galeria</a>
+                        <a id="GalleryButton" href="" class="btn btn-success">Ver galeria</a>
                       </div>
                 </div>
             </div>
@@ -75,4 +74,7 @@
             </div>
         </form>
     </div>
+    @include('includes.scriptsbootstrap')
 </div>
+
+<script src="{{ asset('js\Helpers/Mask/Masks.js') }}"></script>
