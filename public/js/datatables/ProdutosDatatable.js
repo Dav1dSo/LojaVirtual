@@ -52,7 +52,7 @@ $(document).on('click', '.edit', function(event) {
 
     $.ajax({
 
-        url: "/product/edit/"+id+"/",
+        url: `/product/edit/${id}`,
         data: $(this).serialize(),
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

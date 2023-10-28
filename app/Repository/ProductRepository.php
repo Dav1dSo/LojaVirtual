@@ -20,7 +20,7 @@ class ProductRepository implements ProductsRepositoryInterface
 
     public function deleteProduct($id) 
     {
-        Products::destroy($id);
+        return Products::where('id', $id)->delete();
     }
 
     public function createProduct(array $NewProduct) 

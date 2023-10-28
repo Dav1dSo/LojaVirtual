@@ -68,6 +68,11 @@ class ProductsController extends Controller
         return response()->json($productFind);
     }
 
+    public function DeleteProduct($id) {
+        $this->ProductsRepository->deleteProduct($id);
+        return redirect()->back();
+    }
+
     public function GalleryProducts($id) {
        $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
        
