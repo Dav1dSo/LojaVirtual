@@ -36,7 +36,10 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-8">
-                    <label for="categoria">Categoria</label>
+                    <div class="d-flex justify-content-between">
+                        <label for="categoria">Categoria</label>
+                        @include('components.ButtonAddCategorie')
+                    </div>
                     <select id="categoria"
                         class="form-control @error('categoria') is-invalid @enderror" name="categoria">
                         <option value="Eletrônico">Eletrônico</option>

@@ -57,7 +57,6 @@ $(document).on('click', '.edit', function(event) {
           },
         // dataType: 'json',
         success: function(data) {
-            console.log(data);
             $('#formEdite').attr('action', "/editeProduct/" + data.id),
             $('#nome').val(data.nome), 
             $('#descricao').val(data.descricao), 
