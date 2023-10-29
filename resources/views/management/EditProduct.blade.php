@@ -61,7 +61,7 @@
                 <div class="form-group col-md-12">
                     <p>Imagem</p>
                     <div class="text-center">
-                        <img id="img" class="d-block w-100 rounded-3" src="" alt="First image">
+                        <img id="img" class="d-block w-100 rounded-3" src="">
                       </div>
                       <div class="d-grid gap-2 mt-3">
                         <a id="GalleryButton" href="" class="btn btn-success">Ver galeria</a>

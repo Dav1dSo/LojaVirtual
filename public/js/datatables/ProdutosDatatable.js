@@ -50,8 +50,14 @@ $(document).on('click', '.edit', function(event) {
     var id = $(this).attr('id');
 
     $.ajax({
+        url: "/product/edit/"+id+"/",
+        data: $(this).serialize(),
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
         // dataType: 'json',
         success: function(data) {
+            console.log(data);
             $('#formEdite').attr('action', "/editeProduct/" + data.id),
             $('#nome').val(data.nome), 
             $('#descricao').val(data.descricao), 
