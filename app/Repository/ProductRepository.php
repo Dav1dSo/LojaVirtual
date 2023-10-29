@@ -55,4 +55,8 @@ class ProductRepository implements ProductsRepositoryInterface
     public function InsertCategorie(array $NewCategorie) {
         return CategoriesProducts::create($NewCategorie);
     }
+
+    public function getCategories() {
+        return DB::table('view_categories_products')->get();
+    }
 }   

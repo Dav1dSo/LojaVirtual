@@ -40,17 +40,7 @@
                         <label for="categoria">Categoria</label>
                         @include('components.ButtonAddCategorie')
                     </div>
-                    <select id="categoria"
-                        class="form-control @error('categoria') is-invalid @enderror" name="categoria">
-                        <option value="Eletrônico">Eletrônico</option>
-                        <option value="Roupa">Roupa</option>
-                        <option value="Alimento">Alimento</option>
-                        <option value="Bijoteria">Bijoteria</option>
-                        <option value="Calçado">Calçado</option>
-                    </select>
-                    @error('categoria')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+                    @include('components.input-select-categorie')
                 </div>
                 <div class="form-group col-md-4">
                     <label for="estoque">Estoque</label>
@@ -81,3 +71,5 @@
 </div>
 
 <script src="{{ asset('js\Helpers/Mask/Masks.js') }}"></script>
+<script src="{{ asset('js/datatables/AddCategorie.js') }}"></script>
+

@@ -24,10 +24,10 @@ class ProductsController extends Controller
 
     public function index() {
         return view('management.Produtos');
-        // return $this->ProductsRepository->getAllProducts();
     }
     public function CreateProductForm(Request $request) {
-        return view('management.CreateProduct');
+        $categorias = $this->ProductsRepository->getCategories(); 
+        return view('management.CreateProduct', ['categorias' => $categorias]);
     }
 
     public function InsertProduct(ProductRequest $request) {
@@ -100,8 +100,6 @@ class ProductsController extends Controller
         } catch (\Throwable $th) {
             return;
         }
-
-        return redirect()->back();
     }
 
     public function GalleryProducts($id) {

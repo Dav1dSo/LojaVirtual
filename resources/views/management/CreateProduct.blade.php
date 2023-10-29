@@ -68,20 +68,7 @@
                             <label for="categoria">Categoria</label>
                             @include('components.ButtonAddCategorie')
                         </div>
-                        <select value="{{ old('categoria') }}" id="categoria" class="form-control @error('categoria') is-invalid @enderror" name="categoria">
-                            @if (old('categoria'))
-                                <option value="{{ old('categoria') }}" >{{ old('categoria') }}</option>
-                            @endif
-                            <option value="0">Selecione...</option>
-                            <option value="Eletrônico" >Eletrônico</option>
-                            <option value="Roupa" >Roupa</option>
-                            <option value="Alimento" >Alimento</option>
-                            <option value="Bijoteria" >Bijoteria</option>
-                            <option value="Calçado" >Calçado</option>
-                        </select>
-                        @error('categoria')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
+                        @include('components.input-select-categorie')
                     </div>
                     <div class="form-group col-md-2">
                         <label for="estoque">Estoque</label>
