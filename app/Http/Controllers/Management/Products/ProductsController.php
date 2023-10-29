@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Management\Products;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Management\ProductRequest;
+use App\Http\Requests\Management\CategorieRequest;
 use App\Http\Requests\Management\ProductEditeRequest;
 use App\Http\Requests\Management\ImagesProductsRequest;
 use App\Interfaces\ProductsRepositoryInterface;
@@ -89,13 +90,18 @@ class ProductsController extends Controller
         return redirect()->back();
     }
 
-    public function AddCategorie(Request $request) {
+    public function AddCategorie(CategorieRequest $request) {
 
-        $validated = $request->validate([
-            'NewCategorie' => 'required|max:25'
-        ]); 
-     
-        return $validated;
+        $categoria = ['categoria' => $request->NewCategorie];
+
+        try {
+            $this->ProductsRepository->InsertCategorie($categoria);
+            return "Categoria adicionada com sucesso!";
+        } catch (\Throwable $th) {
+            return;
+        }
+
+        return redirect()->back();
     }
 
     public function GalleryProducts($id) {

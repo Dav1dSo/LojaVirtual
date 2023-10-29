@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="d-flex justify-content-center">
     <a href="javascript:void(0)" name="edit" id="{{$id}}" data-original-title="Edit" data-toggle="modal" data-target="#exampleModalCenter" class="edit btn btn-info text-white">Editar</a>
     <form method="POST" action="/deleteProduct/{{ $id }}">
         @csrf

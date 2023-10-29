@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Interfaces\ProductsRepositoryInterface;
 use App\Models\Products;
+use App\Models\CategoriesProducts;
 use Illuminate\Support\Facades\DB;
 
 class ProductRepository implements ProductsRepositoryInterface
@@ -49,5 +50,9 @@ class ProductRepository implements ProductsRepositoryInterface
 
     public function deleteImageProduct($idImage) {
         return DB::table('images_products')->where('id', $idImage)->delete();
+    }
+
+    public function InsertCategorie(array $NewCategorie) {
+        return CategoriesProducts::create($NewCategorie);
     }
 }   

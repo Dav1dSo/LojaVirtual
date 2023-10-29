@@ -10,4 +10,5 @@ interface ProductsRepositoryInterface
     public function createProduct(array $NewProduct);
     public function updateProduct($id, array $UpdateProduct);
     public function getFilterProducts();
+    public function insertCategorie(array $NewCategorie);
 }   
