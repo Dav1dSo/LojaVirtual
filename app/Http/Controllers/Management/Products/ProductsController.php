@@ -67,8 +67,12 @@ class ProductsController extends Controller
     }
 
     public function EditeProductForm($id) {
-        $productFind = $this->ProductsRepository->getProductById($id);
-        return response()->json($productFind);
+        $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
+        $dataProducts = $productFind = $this->ProductsRepository->getProductById($id);
+        return view('management.EditProduct', [
+            'dataProducts' => $dataProducts,
+            'gallery' => $gallery
+        ]);
     }
 
     public function EditeProduct($id, ProductEditeRequest $request) {
