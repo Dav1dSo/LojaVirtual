@@ -101,6 +101,8 @@ class ProductsController extends Controller
         } catch (\Throwable $th) {
             return;
         }
+
+        return redirect()->back();
     }
 
     public function GalleryProducts($id) {

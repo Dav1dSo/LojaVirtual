@@ -17,6 +17,10 @@ $(document).on('click', '.addCategorie', function(event) {
             $("#NewCategorie").val('');
             $("#messageResult").removeClass("d-none alert-danger").addClass("alert-success");
             $("#messageResult").text(`${data}`);
+            $("button").click(function () {
+                history.go(0);
+                console.log('Reloading Page');
+            });
         },
         error: function(req, res) {
             if(res){
