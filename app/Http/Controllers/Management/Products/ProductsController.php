@@ -23,7 +23,8 @@ class ProductsController extends Controller
     }
 
     public function index() {
-        return view('management.Produtos');
+        $categorias = $this->ProductsRepository->getCategories(); 
+        return view('management.Produtos', ['categorias' => $categorias]);
     }
     public function CreateProductForm(Request $request) {
         $categorias = $this->ProductsRepository->getCategories(); 
