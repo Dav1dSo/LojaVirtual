@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Management\Products;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Management\ProductRequest;
+use App\Http\Requests\Management\CategorieRequest;
 use App\Http\Requests\Management\ProductEditeRequest;
 use App\Http\Requests\Management\ImagesProductsRequest;
 use App\Interfaces\ProductsRepositoryInterface;
@@ -23,10 +24,10 @@ class ProductsController extends Controller
 
     public function index() {
         return view('management.Produtos');
-        // return $this->ProductsRepository->getAllProducts();
     }
     public function CreateProductForm(Request $request) {
-        return view('management.CreateProduct');
+        $categorias = $this->ProductsRepository->getCategories(); 
+        return view('management.CreateProduct', ['categorias' => $categorias]);
     }
 
     public function InsertProduct(ProductRequest $request) {
@@ -65,8 +66,14 @@ class ProductsController extends Controller
     }
 
     public function EditeProductForm($id) {
-        $productFind = $this->ProductsRepository->getProductById($id);
-        return response()->json($productFind);
+        $categorias = $this->ProductsRepository->getCategories(); 
+        $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
+        $dataProducts = $productFind = $this->ProductsRepository->getProductById($id);
+        return view('management.EditProduct', [
+            'dataProducts' => $dataProducts,
+            'gallery' => $gallery,
+            'categorias' => $categorias
+        ]);
     }
 
     public function EditeProduct($id, ProductEditeRequest $request) {
@@ -81,11 +88,25 @@ class ProductsController extends Controller
 
         $this->ProductsRepository->updateProduct($id, $EditeProductData);
 
-        return redirect()->back();
+        return redirect('areaAdministrativa');
     }
 
     public function DeleteProduct($id) {
         $this->ProductsRepository->deleteProduct($id);
+        return redirect()->back();
+    }
+
+    public function AddCategorie(CategorieRequest $request) {
+
+        $categoria = ['categoria' => $request->NewCategorie];
+
+        try {
+            $this->ProductsRepository->InsertCategorie($categoria);
+            return "Categoria adicionada com sucesso!";
+        } catch (\Throwable $th) {
+            return;
+        }
+
         return redirect()->back();
     }
 
@@ -97,10 +118,8 @@ class ProductsController extends Controller
 
     public function GalleryProductsUpdate($id, ImagesProductsRequest $request) { 
         if($request->hasFile('imagem') && $request->imagem) {
-            foreach ($request->file('imagem') as $imagem) {
-                $prepareImagem = $imagem->store('img/Products', 'public');
-                $uploadImage = ['path' => $prepareImagem];
-            }
+            $prepareImagem = $request->file('imagem')->store('img/Products', 'public');
+            $uploadImage = ['path' => $prepareImagem];
         }
         $this->ProductsRepository->updateImageProduct($id, $uploadImage);
         return redirect()->back();

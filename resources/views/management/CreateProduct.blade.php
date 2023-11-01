@@ -15,6 +15,7 @@
         margin-top: 9rem;
         box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
     }
+
 </style>
 
 <body>
@@ -63,21 +64,11 @@
                         @enderror
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="categoria">Categoria</label>
-                        <select value="{{ old('categoria') }}" id="categoria" class="form-control @error('categoria') is-invalid @enderror" name="categoria">
-                            @if (old('categoria'))
-                                <option value="{{ old('categoria') }}" >{{ old('categoria') }}</option>
-                            @endif
-                            <option value="0">Selecione...</option>
-                            <option value="Eletrônico" >Eletrônico</option>
-                            <option value="Roupa" >Roupa</option>
-                            <option value="Alimento" >Alimento</option>
-                            <option value="Bijoteria" >Bijoteria</option>
-                            <option value="Calçado" >Calçado</option>
-                        </select>
-                        @error('categoria')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
+                        <div class="d-flex justify-content-between">
+                            <label for="categoria">Categoria</label>
+                            @include('components.ButtonAddCategorie')
+                        </div>
+                        @include('components.input-select-categorie')
                     </div>
                     <div class="form-group col-md-2">
                         <label for="estoque">Estoque</label>
@@ -89,7 +80,7 @@
                     </div>
                 </div>
                 <div class="mt-3 d-flex justify-content-end">
-                    <button type="submit" class="btn btn-secondary">Adicionar</button>
+                    <button type="submit" class="btn btn-success">Adicionar</button>
                 </div>
             </form>
         </div>
@@ -99,3 +90,4 @@
 </html>
 
 <script src="{{ asset('js\Helpers/Mask/Masks.js') }}"></script>
+<script src="{{ asset('js/AddCategorie.js') }}"></script>

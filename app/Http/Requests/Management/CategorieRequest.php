@@ -4,7 +4,7 @@ namespace App\Http\Requests\Management;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ImagesProductsRequest extends FormRequest
+class CategorieRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,17 +17,17 @@ class ImagesProductsRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
         return [
-            'imagem.*' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'imagem' => 'required'
+            'NewCategorie' => 'required|max:25'
         ];
     }
-
     public function messages() {
-        return ['imagem' => 'Arquivo inválido!'];
+        return [
+            'NewCategorie' => 'Categoria inválida'   
+        ];
     }
 }

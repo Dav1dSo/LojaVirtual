@@ -47,10 +47,6 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    {{-- FORM --}}
-                   @include('management.EditProduct')
-                </div>
             </div>
         </div>
     </div>
