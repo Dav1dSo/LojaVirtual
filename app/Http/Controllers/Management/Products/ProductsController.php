@@ -88,7 +88,7 @@ class ProductsController extends Controller
 
         $this->ProductsRepository->updateProduct($id, $EditeProductData);
 
-        return redirect()->back();
+        return redirect('areaAdministrativa');
     }
 
     public function DeleteProduct($id) {
