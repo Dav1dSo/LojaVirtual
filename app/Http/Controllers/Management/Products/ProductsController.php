@@ -23,8 +23,7 @@ class ProductsController extends Controller
     }
 
     public function index() {
-        $categorias = $this->ProductsRepository->getCategories(); 
-        return view('management.Produtos', ['categorias' => $categorias]);
+        return view('management.Produtos');
     }
     public function CreateProductForm(Request $request) {
         $categorias = $this->ProductsRepository->getCategories(); 
@@ -67,11 +66,13 @@ class ProductsController extends Controller
     }
 
     public function EditeProductForm($id) {
+        $categorias = $this->ProductsRepository->getCategories(); 
         $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
         $dataProducts = $productFind = $this->ProductsRepository->getProductById($id);
         return view('management.EditProduct', [
             'dataProducts' => $dataProducts,
-            'gallery' => $gallery
+            'gallery' => $gallery,
+            'categorias' => $categorias
         ]);
     }
 
@@ -116,12 +117,14 @@ class ProductsController extends Controller
     }
 
     public function GalleryProductsUpdate($id, ImagesProductsRequest $request) { 
-        if($request->hasFile('imagem') && $request->imagem) {
-            foreach ($request->file('imagem') as $imagem) {
-                $prepareImagem = $imagem->store('img/Products', 'public');
-                $uploadImage = ['path' => $prepareImagem];
-            }
+        // dd($request->file('imagem'));
+        if($request->imagem) {
+            dd($request);
+            $imagem = $request->imagem ;
+            $prepareImagem = $imagem->store('img/Products', 'public');
+            $uploadImage = ['path' => $prepareImagem];
         }
+
         $this->ProductsRepository->updateImageProduct($id, $uploadImage);
         return redirect()->back();
     }

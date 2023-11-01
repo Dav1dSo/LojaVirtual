@@ -90,4 +90,4 @@
 </html>
 
 <script src="{{ asset('js\Helpers/Mask/Masks.js') }}"></script>
-<script src="{{ asset('js/datatables/AddCategorie.js') }}"></script>
+<script src="{{ asset('js/AddCategorie.js') }}"></script>

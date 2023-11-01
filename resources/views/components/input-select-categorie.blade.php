@@ -4,7 +4,7 @@
     @endif
     <option value="0">Selecione...</option>
     @foreach ($categorias as $categoria)
-        <option value="{{ $categoria->categoria }}" >{{ $categoria->categoria }}</option>
+        <option selected="{{ $categoria->categoria }}"  >{{ $categoria->categoria }}</option>
     @endforeach
 </select>
 @error('categoria')
