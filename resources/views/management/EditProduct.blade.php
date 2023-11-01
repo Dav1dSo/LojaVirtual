@@ -89,17 +89,18 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="form-group col-md-12 mt-4">
-                            <div class="card text-center">
-                                <div class="card-header">Imagens</div>
-                                @include('management.EditeImagesProducts')
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="mt-3 d-flex justify-content-end">
                         <button id="submitData" type="submit" class="btn btn-success">Salvar</button>
                     </div>
                 </form>
+                <div class="form-group col-md-12 mt-4">
+                    <div class="card text-center">
+                        <div class="card-header">Imagens</div>
+                        @include('management.EditeImagesProducts')
+                    </div>
+                </div>
             </div>
         </div>
     </body>

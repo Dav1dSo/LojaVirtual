@@ -117,14 +117,10 @@ class ProductsController extends Controller
     }
 
     public function GalleryProductsUpdate($id, ImagesProductsRequest $request) { 
-        // dd($request->file('imagem'));
-        if($request->imagem) {
-            dd($request);
-            $imagem = $request->imagem ;
-            $prepareImagem = $imagem->store('img/Products', 'public');
+        if($request->hasFile('imagem') && $request->imagem) {
+            $prepareImagem = $request->file('imagem')->store('img/Products', 'public');
             $uploadImage = ['path' => $prepareImagem];
         }
-
         $this->ProductsRepository->updateImageProduct($id, $uploadImage);
         return redirect()->back();
     }
