@@ -11,6 +11,14 @@
     #wrap-table {
         margin-top: 150px;
     }
+    
+    td:nth-child(4){
+        max-width: 20vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
 </style>
 
 <body>
