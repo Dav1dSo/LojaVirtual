@@ -1,4 +1,4 @@
-<footer class="bg-dark p-3   fixed-bottom">
+<footer class="bg-dark p-3">
     <div class="text-center">
         <div class="text-white p-4">
             <h3>FULL<strong class="text-info">Ecommerce</strong></h3>

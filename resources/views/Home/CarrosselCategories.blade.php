@@ -1,4 +1,55 @@
-<div class="bg-light container text-center">
+<div id="carouselExampleControls" class="text-center carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img id="imgCarrossel" class="d-block w-100" src="https://i.ytimg.com/vi/a59moxueOyY/maxresdefault.jpg" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img id="imgCarrossel" class="d-block w-100" src="https://www.designi.com.br/images/preview/10026052.jpg" alt="Second slide">      
+    </div>
+      <div class="carousel-item">
+        <img id="imgCarrossel" class="d-block w-100" src="https://d1l3jc4magixw.cloudfront.net/cases/2018/BR_2018_06/2018_BR_2018_06_hero_1.jpg" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- <div class="bg-light container text-center">
     <h4 class="ms-3 text-secondary text-start" >Categorias</h4>
     <div class="row">
 
@@ -28,4 +79,4 @@
         </div> 
         
     </div>
-</div>
+</div> --}}

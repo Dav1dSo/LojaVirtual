@@ -9,17 +9,18 @@
 
 </head>
 <style>
+
     * {
         margin: 0, padding: 0;
     }
 
-    #CarrosselCategoria {
-        margin-top: 20vh;
+    #Carrossel {
+        margin-top: 12vh;
     }
 
-    .DimeImgs {
-        max-width: 5vw;
-        max-height: 5vw;
+    #imgCarrossel {
+        height: 75vh;
+        width: 100vw;
     }
 
 </style>
@@ -28,7 +29,7 @@
     <div class="position-relative">
         @include('includes.navbar')
 
-        <div id="CarrosselCategoria">
+        <div id="Carrossel">
             @include('Home.CarrosselCategories')
         </div>
 
