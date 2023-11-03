@@ -12,13 +12,25 @@
     * {
         margin: 0, padding: 0;
     }
+
+    #CarrosselCategoria {
+        margin-top: 20vh;
+    }
+
+    .DimeImgs {
+        max-width: 5vw;
+        max-height: 5vw;
+    }
+
 </style>
     
 <body>
     <div class="position-relative">
         @include('includes.navbar')
 
-        @include('Home.CarrosselCategories')
+        <div id="CarrosselCategoria">
+            @include('Home.CarrosselCategories')
+        </div>
 
 
         <div class="d-flex ustify-content-center" style="margin-top: 7rem;">
