@@ -18,6 +18,9 @@
     <div class="position-relative">
         @include('includes.navbar')
 
+        @include('Home.CarrosselCategories')
+
+
         <div class="d-flex ustify-content-center" style="margin-top: 7rem;">
             <div class="card m-5" style="width: 27rem;">
                 <!-- Inicio car-1  -->
