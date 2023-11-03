@@ -1,5 +1,5 @@
 <div>
-  <nav class="navbar p-4 navbar-dark bg-dark fixed-top">
+  <nav class="navbar p-5 navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
         @include('includes.logo')
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">

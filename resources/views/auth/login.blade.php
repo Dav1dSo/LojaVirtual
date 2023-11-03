@@ -58,8 +58,10 @@
             </form>
             <div class="col-lg-2"></div>
         </div>
-        @include('includes.footer')
     </div>
+    <footer class="fixed-bottom">
+        @include('includes.footer')
+    </footer>
 </body>
 @include('includes.scriptsbootstrap')
     

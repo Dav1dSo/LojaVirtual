@@ -9,14 +9,30 @@
 
 </head>
 <style>
+
     * {
         margin: 0, padding: 0;
     }
+
+    #Carrossel {
+        margin-top: 12vh;
+    }
+
+    #imgCarrossel {
+        height: 75vh;
+        width: 100vw;
+    }
+
 </style>
     
 <body>
     <div class="position-relative">
         @include('includes.navbar')
+
+        <div id="Carrossel">
+            @include('Home.CarrosselCategories')
+        </div>
+
 
         <div class="d-flex ustify-content-center" style="margin-top: 7rem;">
             <div class="card m-5" style="width: 27rem;">
