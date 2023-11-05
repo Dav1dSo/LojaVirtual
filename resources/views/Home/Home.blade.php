@@ -41,6 +41,10 @@
         -webkit-box-orient: vertical;
     }
 
+    .cardImg {
+        height: 40vh;
+    }
+
 </style> 
     
 <body>

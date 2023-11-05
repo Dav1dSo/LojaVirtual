@@ -1,4 +1,4 @@
-<div class="card mt-5">
+<div class="card mt-4">
     <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
             <li class="nav-item">
@@ -15,8 +15,8 @@
 </div>
 <div class="row row-cols-1 row-cols-md-3 w-100">
     <div class="col">
-        <div class="card m-3">
-            <img src="https://d1l3jc4magixw.cloudfront.net/cases/2018/BR_2018_06/2018_BR_2018_06_hero_1.jpg"
+        <div class="card m-3" style="width: 20.1vw">
+            <img style="height: 30vh; width: 20vw" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-DVKKF-pUw1vFQ1tnj4PEmFIPpoGjGuAPvA&usqp=CAU"
                 class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
