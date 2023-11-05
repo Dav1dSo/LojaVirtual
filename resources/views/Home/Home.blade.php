@@ -10,29 +10,33 @@
 </head>
 <style>
 
-    * {
-        margin: 0, padding: 0;
-    }
+    * { margin: 0, padding: 0;}
 
-    #Carrossel {
-        margin-top: 12vh;
-    }
+    #Carrossel { margin-top: 9vh; }
 
     #imgCarrossel {
         height: 75vh;
         width: 100vw;
     }
 
-</style>
+    #destaques { margin-top: 8vh }
+
+    .cardProduct {
+        min-width: 90px;
+    }
+
+</style> 
     
 <body>
     <div class="position-relative">
         @include('includes.navbar')
 
         <div id="Carrossel">@include('Home.CarrosselCategories')</div>
+        
+        <div id="destaques">@include('Home.Destaques')</div>
 
         @include('Home.FilterCategories')
-        
+
         @include('includes.footer')
     </div>
 </body>
