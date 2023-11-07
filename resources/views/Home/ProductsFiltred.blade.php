@@ -1,6 +1,6 @@
-<div class="col d-flex mb-5">
+<div id="wrap" class="col d-flex">
     @foreach ($FilterProducts as $product)
-        <div class="product-card">
+        <div class="product-card m-b-5 m-3">
             <div class="badge">Hot</div>
             <div class="product-tumb">
                 <img src="{{ url("storage/$product->imagem") }}">
@@ -19,17 +19,3 @@
     @endforeach
 </div>
 
-
-
-{{-- @foreach ($FilterProducts as $product)
-        <div class="card m-3 w-100">
-            <img class="w-100 h-50" src="{{ url("storage/$product->imagem") }}"
-            class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ $product->nome }}</h5>
-                <p class="card-text limitedDesc">{{ $product->descricao }}</p>
-                <a href="#" class="btn btn-primary">Ver Produto</a>
-            </div>
-        </div>
-    @endforeach --}}
-</div>
