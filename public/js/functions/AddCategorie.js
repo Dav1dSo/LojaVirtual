@@ -12,7 +12,6 @@ $(document).on('click', '.addCategorie', function(event) {
         });
      });
 
-     // Faz requisaçao post enviando dados para categoria.  
     $.ajax({
         method: "POST",
         url: `/newCategorie`,

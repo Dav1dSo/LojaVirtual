@@ -96,6 +96,11 @@ class ProductsController extends Controller
         return redirect()->back();
     }
 
+    public function FilterProductByCategorie($FilterCategorie) {
+        $FilterProducts = $this->ProductsRepository->getFilterProducts($FilterCategorie);
+        return view('Home.ProductsFiltred', ['FilterProducts' => $FilterProducts]);
+    }
+
     public function AddCategorie(CategorieRequest $request) {
 
         $categoria = ['categoria' => $request->NewCategorie];

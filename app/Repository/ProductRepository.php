@@ -35,9 +35,9 @@ class ProductRepository implements ProductsRepositoryInterface
         return Products::whereId($id)->update($UpdateProduto);
     }
 
-    public function getFilterProducts() 
+    public function getFilterProducts($filter) 
     {
-        return Products::where('is_fulfilled', true);
+        return DB::table('view_products')->where('categoria', $filter)->get();
     }
 
     public function GetImagesProducts($id)

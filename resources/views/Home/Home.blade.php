@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ asset('css/CardProduct.css') }}">
     <title>Full-Ecommerce</title>
     @include('includes.headerbootstrap')
 
@@ -55,10 +56,14 @@
         
         <div id="destaques">@include('Home.Destaques')</div>
 
-        @include('Home.FilterCategories')
+        @include('Home.NavCategories')
+
+        <div id="ProductsFiltred" class="mt-5"></div>
 
         @include('includes.footer')
     </div>
 </body>
     @include('includes.scriptsbootstrap')
+    <script src="{{ asset('js/functions/FilterProductByCategorie.js') }}"></script>
+    
 </html>
