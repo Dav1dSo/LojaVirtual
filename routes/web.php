@@ -24,8 +24,9 @@ Route::get('/newProduct',[ProductsController::class, 'CreateProductForm'])->midd
 Route::post('/createProduct',[ProductsController::class, 'InsertProduct'])->middleware(['auth', 'verified'])->name('insert_product');
 Route::get('/editeProduct/{id}',[ProductsController::class, 'EditeProductForm'])->middleware(['auth', 'verified'])->name('edite_product');
 Route::post('/product/edit/{id}', [ProductsController::class, 'EditeProduct'])->middleware(['auth', 'verified'])->name('edite_product');
-
 Route::any('/product/filter/{categorie}', [ProductsController::class, 'FilterProductByCategorie'])->name('filter_product_by_categorie');
+
+Route::any('/showProduct/{id}',[ProductsController::class, 'ShowProduct'])->name('delete_product');
 
 Route::post('/deleteProduct/{id}',[ProductsController::class, 'DeleteProduct'])->middleware(['auth', 'verified'])->name('delete_product');
 Route::post('/newCategorie', [ProductsController::class, 'AddCategorie'])->middleware(['auth', 'verified'])->name('new_categorie');

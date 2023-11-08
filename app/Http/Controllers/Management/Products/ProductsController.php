@@ -65,10 +65,15 @@ class ProductsController extends Controller
         return redirect('/areaAdministrativa');
     }
 
+    public function ShowProduct($id) {
+        $showProduct = $this->ProductsRepository->getProductById($id);
+        return view('Home.ShowProduct', ['product' => $showProduct]);
+    }
+
     public function EditeProductForm($id) {
         $categorias = $this->ProductsRepository->getCategories(); 
         $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
-        $dataProducts = $productFind = $this->ProductsRepository->getProductById($id);
+        $dataProducts = $this->ProductsRepository->getProductById($id);
         return view('management.EditProduct', [
             'dataProducts' => $dataProducts,
             'gallery' => $gallery,
