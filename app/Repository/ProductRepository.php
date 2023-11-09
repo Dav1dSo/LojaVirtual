@@ -35,12 +35,10 @@ class ProductRepository implements ProductsRepositoryInterface
         return Products::whereId($id)->update($UpdateProduto);
     }
 
-    public function getFilterProducts($filter) 
-    {
+    public function getFilterProducts($filter) {
         return Products::with('imagesProducts')->whereHas('imagesProducts', function($query) use ($filter){
             $query->where('categoria', $filter);
          })->get();
-        // return DB::table('view_products')->where('categoria', $filter)->get();
     }
     
 

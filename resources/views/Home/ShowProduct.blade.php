@@ -20,8 +20,7 @@
                 <h2>{{ $product->nome }}<br>
                     <span>{{ $product->categoria }}</span>
                 </h2>
-                <p>{{ $product->descricao }}</p>
-                
+                <p id="descricao">{{ $product->descricao }}</p>
                 <div>
                     <div class="reviews">
                         <ul class="stars">
@@ -35,7 +34,9 @@
                       </div>
                 </div>
 
-                <h3>{{ $product->valor }}</h3>
+                <div>
+                    <h3>{{ $product->valor }}</h3>
+                </div>
                 <button>Adicionar ao carrinho</button>
             </div>
         </div>

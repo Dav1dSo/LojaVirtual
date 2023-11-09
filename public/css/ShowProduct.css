@@ -33,17 +33,26 @@ body {
 .container .imgBx img {
     position: relative;
     width: 40vw;
-    height: 66vh;
+    height: 65vh;
   }
 
 .container .details {
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 50%;
     height: 100%;
     box-sizing: border-box;
     padding: 40px;
+}
+
+.content {
+    max-width: 600px;
+}
+
+#descricao {
+    min-width: 36vw;
+    height: 250px;
+    overflow: auto;
 }
 
 .container .details h2{
@@ -77,21 +86,20 @@ body {
     float: left;
 }
 .container .details button {
-    background: darkred;
+    background: #1b9221 ;
     color: #fff;
     border: none;
     outline: none;
-    padding: 18px 20px;
-    margin-top: 5px;
+    padding: 2%;
     font-size: 12px;
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 600;
     border-radius: 40px;
-    float: right;
+    margin-top: 1vh;
+    margin-left: 6%;
 }
 
-  
 .reviews{
   .stars{
     display: inline-block;
@@ -117,8 +125,9 @@ body {
 
 
 /* responsive */
-@media (max-width: 1080px) {
+@media (max-width: 1400px) {
     .container {
+        width: 50vw;
         height: auto;
     }
     .container .imgBx {
@@ -130,8 +139,9 @@ body {
         overflow: hidden;
     }
     .container .imgBx img {
+        margin-top: -40px;
         left: initial;
-        width: 90vw;
+        width: 100vw;
       }
     .details {
         width: 100% !important;
