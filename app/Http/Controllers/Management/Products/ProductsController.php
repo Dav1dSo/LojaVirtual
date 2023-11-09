@@ -102,7 +102,7 @@ class ProductsController extends Controller
     }
 
     public function FilterProductByCategorie($FilterCategorie) {
-        $FilterProducts = $this->ProductsRepository->getFilterProducts($FilterCategorie);
+        $FilterProducts = $this->ProductsRepository->getFilterProducts($FilterCategorie)->take(1);
         return view('Home.ProductsFiltred', ['FilterProducts' => $FilterProducts]);
     }
 
@@ -122,7 +122,6 @@ class ProductsController extends Controller
 
     public function GalleryProducts($id) {
        $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
-       
        return view('management.GalleryProducts', ['gallery' => $gallery]);
     }
 

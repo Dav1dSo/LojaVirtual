@@ -3,5 +3,3 @@
         <button id="filter" name="{{ $item->categoria }}" class="nav-link text-dark">{{ $item->categoria }}</button>
     @endforeach
 </nav>
-
-
