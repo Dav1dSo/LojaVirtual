@@ -102,7 +102,7 @@ class ProductsController extends Controller
     }
 
     public function FilterProductByCategorie($FilterCategorie) {
-        $FilterProducts = $this->ProductsRepository->getFilterProducts($FilterCategorie)->take(1);
+        $FilterProducts = $this->ProductsRepository->getFilterProducts($FilterCategorie);
         return view('Home.ProductsFiltred', ['FilterProducts' => $FilterProducts]);
     }
 

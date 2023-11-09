@@ -37,8 +37,12 @@ class ProductRepository implements ProductsRepositoryInterface
 
     public function getFilterProducts($filter) 
     {
-        return DB::table('view_products')->where('categoria', $filter)->get();
+        return Products::with('imagesProducts')->whereHas('imagesProducts', function($query) use ($filter){
+            $query->where('categoria', $filter);
+         })->get();
+        // return DB::table('view_products')->where('categoria', $filter)->get();
     }
+    
 
     public function GetImagesProducts($id)
     {

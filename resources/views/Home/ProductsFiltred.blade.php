@@ -2,7 +2,7 @@
     @foreach ($FilterProducts as $product)
     <div class="product-card mb-5 m-3">
             <div class="product-tumb">
-                <img src="{{ url("storage/$product->imagem") }}">
+                <img src="{{ url("storage/" . $product->imagesProducts[0]->path) }}">
             </div>
             <div class="product-details">
                 <h4>{{ $product->nome }}</h4>
