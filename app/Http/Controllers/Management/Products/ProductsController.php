@@ -67,7 +67,11 @@ class ProductsController extends Controller
 
     public function ShowProduct($id) {
         $showProduct = $this->ProductsRepository->getProductById($id);
-        return view('Home.ShowProduct', ['product' => $showProduct]);
+        $showImages = $this->ProductsRepository->GetImagesProducts($id);
+        return view('Home.ShowProduct', [
+            'product' => $showProduct,
+            'imgProduct' => $showImages
+        ]);
     }
 
     public function EditeProductForm($id) {
