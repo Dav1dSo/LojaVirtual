@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="imgBx">
-            <img src="{{ url("storage/$product->imagem") }}" alt="Nike Jordan Proto-Lyte Image">
+            <img id="imgDestaque" src="{{ url("storage/$product->imagem") }}" alt="Nike Jordan Proto-Lyte Image">
         </div>
         <div class="details">
             <div class="content">
@@ -48,8 +48,8 @@
         </div>
     </div>
 
-    <script></script>
+    @include('includes.scriptsbootstrap')
+    <script src="{{ asset('js/functions/Select_image.js') }}"></script>
 
 </body>
-
 </html>

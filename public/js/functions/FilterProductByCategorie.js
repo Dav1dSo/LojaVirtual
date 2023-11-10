@@ -1,8 +1,6 @@
 $(document).on('click', '#filter', function(event) {
     event.preventDefault();
     
-    console.log(this);
-
     const filterCategoria = $(this).attr('name');
 
     $.ajax({

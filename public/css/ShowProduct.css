@@ -137,7 +137,6 @@ body {
         height: auto;
     }
     .container .imgBx {
-        padding: 40px;
         box-sizing: border-box;
         width: 100% !important;
         height: auto;
@@ -145,15 +144,16 @@ body {
         overflow: hidden;
     }
     .container .imgBx img {
-        margin-top: -40px;
-        left: initial;
         width: 100vw;
-      }
+        height: auto;
+    }
+
     .details {
         width: 100% !important;
         height: auto;
         padding: 20px;
     }
+    
     .container .details p {
         margin-left: 0;
         max-width: 100%;
