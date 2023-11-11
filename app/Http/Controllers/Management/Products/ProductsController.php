@@ -65,10 +65,19 @@ class ProductsController extends Controller
         return redirect('/areaAdministrativa');
     }
 
+    public function ShowProduct($id) {
+        $showProduct = $this->ProductsRepository->getProductById($id);
+        $showImages = $this->ProductsRepository->GetImagesProducts($id);
+        return view('Home.ShowProduct', [
+            'product' => $showProduct,
+            'imgProduct' => $showImages
+        ]);
+    }
+
     public function EditeProductForm($id) {
         $categorias = $this->ProductsRepository->getCategories(); 
         $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
-        $dataProducts = $productFind = $this->ProductsRepository->getProductById($id);
+        $dataProducts = $this->ProductsRepository->getProductById($id);
         return view('management.EditProduct', [
             'dataProducts' => $dataProducts,
             'gallery' => $gallery,
@@ -96,6 +105,11 @@ class ProductsController extends Controller
         return redirect()->back();
     }
 
+    public function FilterProductByCategorie($FilterCategorie) {
+        $FilterProducts = $this->ProductsRepository->getFilterProducts($FilterCategorie);
+        return view('Home.ProductsFiltred', ['FilterProducts' => $FilterProducts]);
+    }
+
     public function AddCategorie(CategorieRequest $request) {
 
         $categoria = ['categoria' => $request->NewCategorie];
@@ -112,7 +126,6 @@ class ProductsController extends Controller
 
     public function GalleryProducts($id) {
        $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
-       
        return view('management.GalleryProducts', ['gallery' => $gallery]);
     }
 

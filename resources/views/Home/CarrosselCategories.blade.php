@@ -1,13 +1,13 @@
 <div id="carouselExampleControls" class="text-center carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img id="imgCarrossel" class="d-block w-100" src="https://i.ytimg.com/vi/a59moxueOyY/maxresdefault.jpg" alt="Third slide">
+        <img id="imgCarrossel" class="d-block w-100" src="https://d1l3jc4magixw.cloudfront.net/cases/2018/BR_2018_06/2018_BR_2018_06_hero_1.jpg" alt="Third slide">
       </div>
       <div class="carousel-item">
-        <img id="imgCarrossel" class="d-block w-100" src="https://www.designi.com.br/images/preview/10590442.jpg" alt="Second slide">      
+        <img id="imgCarrossel" class="d-block w-100" src="https://i.ytimg.com/vi/a59moxueOyY/maxresdefault.jpg" alt="Third slide">      
     </div>
       <div class="carousel-item">
-        <img id="imgCarrossel" class="d-block w-100" src="https://d1l3jc4magixw.cloudfront.net/cases/2018/BR_2018_06/2018_BR_2018_06_hero_1.jpg" alt="Third slide">
+        <img id="imgCarrossel" class="d-block w-100" src="https://www.designi.com.br/images/preview/10590442.jpg" alt="Second slide">  
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

@@ -110,7 +110,7 @@
 </body>
 @include('includes.scriptsbootstrap')
 <script src="{{ asset('js\Helpers/Mask/Masks.js') }}"></script>
-<script src="{{ asset('js/AddCategorie.js') }}"></script>
+<script src="{{ asset('js/functions/AddCategorie.js') }}"></script>
 
 <script>
     function ClickEdite(id) {
@@ -128,31 +128,6 @@
         const element = $(".BeforeClick" + id);
         element.removeClass("d-none");
     }
-
-    // $(document).on('click', '#submitData', function(event) {
-    //     event.preventDefault();
-    //     const idProduct = $("#idProduct").val();
-
-    //     $.ajax({
-
-    //         method: "POST",
-    //         url: `/product/edit/${idProduct}`,
-    //         data: {
-    //             nome: $("#nome").val(),
-    //             valor: $("#valor").val(),
-    //             descricao: $("#descricao").val(),
-    //             categoria: $("#categoria").val(),
-    //             estoque: $("#estoque").val(),
-    //         },
-    //         headers: {
-    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-    //         },
-    //         success: function() {
-    //             history.go();
-    //         }
-
-    //     })  
-    // });
 </script>
 
 </html>
