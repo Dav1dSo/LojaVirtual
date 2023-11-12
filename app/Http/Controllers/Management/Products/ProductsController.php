@@ -110,6 +110,12 @@ class ProductsController extends Controller
         return view('Home.ProductsFiltred', ['FilterProducts' => $FilterProducts]);
     }
 
+
+    public function AvaliableProduct(){
+        return view('components.ProductAvaliable');
+    }
+
+
     public function AddCategorie(CategorieRequest $request) {
 
         $categoria = ['categoria' => $request->NewCategorie];
