@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Management\ProductRequest;
 use App\Http\Requests\Management\CategorieRequest;
 use App\Http\Requests\Management\ProductEditeRequest;
+use App\Http\Requests\Management\AvaliableProduct;
 use App\Http\Requests\Management\ImagesProductsRequest;
 use App\Interfaces\ProductsRepositoryInterface;
 use Illuminate\Http\Request;
@@ -110,11 +111,13 @@ class ProductsController extends Controller
         return view('Home.ProductsFiltred', ['FilterProducts' => $FilterProducts]);
     }
 
-
-    public function AvaliableProduct(){
-        return view('components.ProductAvaliable');
+    public function AvaliableProduct($idProduct, AvaliableProduct $request){
+        try {
+            return $request;
+        } catch (\Throwable $th) {
+            return redirect()->back();
+        }
     }
-
 
     public function AddCategorie(CategorieRequest $request) {
 

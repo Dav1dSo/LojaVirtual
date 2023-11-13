@@ -27,7 +27,7 @@ Route::post('/product/edit/{id}', [ProductsController::class, 'EditeProduct'])->
 Route::any('/product/filter/{categorie}', [ProductsController::class, 'FilterProductByCategorie'])->name('filter_product_by_categorie');
 Route::any('/showProduct/{id}',[ProductsController::class, 'ShowProduct'])->name('delete_product');
 
-Route::get('/avaliable/product', [ProductsController::class, 'AvaliableProduct'])->middleware(['auth', 'verified']);
+Route::post('/avaliable/product/{idProduct}', [ProductsController::class, 'AvaliableProduct'])->middleware(['auth', 'verified']);
 
 Route::post('/deleteProduct/{id}',[ProductsController::class, 'DeleteProduct'])->middleware(['auth', 'verified'])->name('delete_product');
 Route::post('/newCategorie', [ProductsController::class, 'AddCategorie'])->middleware(['auth', 'verified'])->name('new_categorie');

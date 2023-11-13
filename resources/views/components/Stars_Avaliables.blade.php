@@ -11,20 +11,21 @@
 </head>
 
 <body>
-    <form action="#" method="POST" class="mt-5 ">
+    <form action="/avaliable/product/{{ $product->id }}" method="post" class="mt-5">
+        @csrf
         <div class="rating">
-            <input type="radio" name="star" id="star1"><label for="star1"></label>
-            <input type="radio" name="star" id="star2"><label for="star2"></label>
-            <input type="radio" name="star" id="star3"><label for="star3"></label>
-            <input type="radio" name="star" id="star4"><label for="star4"></label>
-            <input type="radio" name="star" id="star5"><label for="star5"></label>
+            <input type="radio" name="star" value="5" id="star5"><label for="star5"></label>
+            <input type="radio" name="star" value="4" id="star4"><label for="star4"></label>
+            <input type="radio" name="star" value="3" id="star3"><label for="star3"></label>
+            <input type="radio" name="star" value="2" id="star2"><label for="star2"></label>
+            <input type="radio" name="star" value="1" id="star1"><label for="star1"></label>
         </div>
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">Deixe sua avaliação.</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label name="avaliacao" class="@error('star') d-none @enderror" for="avaliacao">Deixe sua avaliação.</label>
+            <textarea name="avaliacao" class="form-control" id="avaliacao" rows="5"></textarea>
             <div class="d-flex justify-content-end mt-1">
                 <button class="btn btn-secondary m-2 ms-5" id="back">Voltar</button>
-                <button class="btn btn-success m-2">Enviar</button>
+                <button type="submit" class="btn btn-success m-2">Enviar</button>
             </div>
         </div>
     </form>

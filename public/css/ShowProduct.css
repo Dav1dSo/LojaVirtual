@@ -137,8 +137,9 @@ body {
 }
 
 #avaliableButton {
+    color: #254d4d;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
     margin: 2%;
 }
 

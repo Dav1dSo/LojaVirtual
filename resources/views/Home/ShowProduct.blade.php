@@ -41,11 +41,16 @@
                             <li><i class="fa fa-star"></i></li>
                             <li><i class="fa fa-star-o"></i></li>
                         </ul>
-                        <a href="#" id="avaliableButton">Avaliar produto</a>
+                        @if (Auth::check() || Auth::viaRemember())
+                            <a href="#" id="avaliableButton">Avaliar produto</a>
+                            @else                                
+                            <a href="{{ route('login') }}" class="text-decoration-none text-secondary ms-2">Avaliar produto</a>
+                        @endif
+                        @error('star')<span class="text-danger">Selecione pelo menos uma estrela e tente novamente!</span>@enderror
                     </div>
-                    
                         <span>(64 reviews)</span>
                     </div>
+
                     <div id="FormAvaliable" class="d-none">
                         @include('components.Stars_Avaliables')
                     </div>
