@@ -13,4 +13,5 @@ interface ProductsRepositoryInterface
     public function insertCategorie(array $NewCategorie);
     public function getFilterProducts($filter);
     public function getCategories();
+    public function Avaliaction(array $NewAvaliable);
 }   

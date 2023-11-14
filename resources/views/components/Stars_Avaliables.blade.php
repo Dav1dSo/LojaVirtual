@@ -11,8 +11,10 @@
 </head>
 
 <body>
-    <form action="/avaliable/product/{{ $product->id }}" method="post" class="mt-5">
+    <form action="/avaliable/product/" method="post" class="mt-5">
         @csrf
+        <input type="hidden" name="user" value="{{ Auth::user()->name }}">
+        <input type="hidden" name="idProduct" value="{{ $product->id }}">
         <div class="rating">
             <input type="radio" name="star" value="5" id="star5"><label for="star5"></label>
             <input type="radio" name="star" value="4" id="star4"><label for="star4"></label>

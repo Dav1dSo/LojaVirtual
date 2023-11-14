@@ -6,17 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Products;
 
-class ImagesProducts extends Model
+class AvaliableProducts extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'products_id';
+    protected $primaryKey = 'avaliable_idProduct ';
 
-    protected $fillable = [
-        'products_id', 'path'
-    ];
+    protected $fillable = ['stars', 'textAvaliaction', 'user', 'avaliable_idProduct'];
 
-    public function Products() {
+    public function Product_Avaliable() {
         return $this->belongsTo(Products::class);
     }
 }
+ 

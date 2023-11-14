@@ -111,9 +111,21 @@ class ProductsController extends Controller
         return view('Home.ProductsFiltred', ['FilterProducts' => $FilterProducts]);
     }
 
-    public function AvaliableProduct($idProduct, AvaliableProduct $request){
+    public function AvaliableProduct(AvaliableProduct $request){
+       
+        $avaliaction = [
+            'avaliable_idProduct' => $request->idProduct,
+            'user' => $request->user,
+            'stars' => $request->star,
+            'textAvaliaction' => $request->avaliacao,
+        ];
+
+        // dd($avaliaction);
+
+        $this->ProductsRepository->Avaliaction($avaliaction);
+        
         try {
-            return $request;
+            return redirect()->back()->with('Obrigado por avaliar nosso produto!');
         } catch (\Throwable $th) {
             return redirect()->back();
         }
