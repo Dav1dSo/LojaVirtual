@@ -8,6 +8,7 @@ use App\Http\Requests\Management\ProductEditeRequest;
 use App\Http\Requests\Management\CategorieRequest;
 use App\Http\Requests\Management\ProductRequest;
 use App\Interfaces\ProductsRepositoryInterface;
+use App\Models\CountAvaliactionsProducts;
 use App\Http\Controllers\Controller;
 use App\Models\AvaliableProducts;
 use App\Models\ImagesProducts;
@@ -71,21 +72,24 @@ class ProductsController extends Controller
         $showProduct = $this->ProductsRepository->getProductById($id);
         $showImages = $this->ProductsRepository->GetImagesProducts($id);
 
-        $Avaliaction = AvaliableProducts::where('avaliable_idProduct', $id)->select('stars', 'quant_evaluated')->get();
-
+        $Avaliaction = AvaliableProducts::where('avaliable_idProduct', $id)->select('stars')->get();
+        $countAvalueted = CountAvaliactionsProducts::where('product_id', $id)->select('quant_evaluated')->get();
         
-        $result = 0;
+        $count = 0;
+        foreach ($countAvalueted as $countAvaliactions) {
+            $count = $countAvaliactions->quant_evaluated;
+        }
+
+        $stars = 0;
         foreach ($Avaliaction as $key) {
-            $result += $key->stars;
+            $stars += $key->stars;
         }
         
-        // dd($Avaliaction);
-
-
         return view('Home.ShowProduct', [
             'product' => $showProduct,
             'imgProduct' => $showImages,
             'Avaliaction' => $Avaliaction,
+            'count' => $count,
         ]);
     }
 
@@ -126,6 +130,15 @@ class ProductsController extends Controller
     }
 
     public function AvaliableProduct(AvaliableProductRequest $request){
+      
+        // dd($request->quant_evaluated);
+        
+        $teste = [
+            'product_id' => $request->idProduct,
+            'quant_evaluated' => $request->quant_evaluated + 1
+        ];
+      
+        CountAvaliactionsProducts::create($teste);
        
         $avaliaction = [
             'avaliable_idProduct' => $request->idProduct,

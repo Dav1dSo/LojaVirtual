@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\AvaliableProducts;
 use App\Models\ImagesProducts;
+use App\Models\CountAvaliactionProducts;
 
 
 class Products extends Model
@@ -23,4 +24,8 @@ class Products extends Model
     public function AvaliactionsProducts() {
       return $this->hasMany(AvaliableProducts::class);
     }
-}
+
+    public function ProductsCountAvaliactions() {
+      return $this->hasMany(CountAvaliactionProducts::class);
+    }
+  }

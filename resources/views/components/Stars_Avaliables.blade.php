@@ -11,17 +11,14 @@
 </head>
 
 <body>
-
-    
     <form action="/avaliable/product/" method="post" class="mt-5">
         @csrf
         <input type="hidden" name="user" value="{{ Auth::user()->name }}">
         <input type="hidden" name="idProduct" value="{{ $product->id }}">
-        
-        @if (isset($Avaliaction->quant_evaluated)) 
-            <input type="hidden" name="quant_evaluated" value="{{ $Avaliaction->quant_evaluated }}">
-        @endif
-
+        <input type="hidden" name="quant_evaluated" 
+            @if(isset($count) and $count > 0 ) value="{{ $count }}"
+                @else value="0"
+            @endif>
         <div class="rating">
             <input type="radio" name="star" value="5" id="star5"><label for="star5"></label>
             <input type="radio" name="star" value="4" id="star4"><label for="star4"></label>
@@ -31,7 +28,7 @@
         </div>
         <div class="form-group">
             
-            <label name="avaliacao" class="@error('star') d-none @enderror" for="avaliacao">Deixe sua avaliação.</label>
+            <label name="avaliacao" class="@error('star') d-none @enderror" for="avaliacao">Deixe seu comentario.</label>
             <textarea name="avaliacao" class="form-control" id="avaliacao" rows="5"></textarea>
             <div class="d-flex justify-content-end mt-1">
                 <button class="btn btn-secondary m-2 ms-5" id="back">Voltar</button>
