@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('user');
             $table->unsignedBigInteger('avaliable_idProduct');
-            $table->integer('stars');
+            $table->integer('stars')->default(0);
+            $table->integer('quant_evaluated')->default('0');
             $table->foreign('avaliable_idProduct')->references('id')->on('products')->onDelete('cascade');
             $table->text('textAvaliaction');
             $table->timestamps();

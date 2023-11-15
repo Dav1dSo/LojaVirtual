@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Management\Products;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Management\ProductRequest;
-use App\Http\Requests\Management\CategorieRequest;
-use App\Http\Requests\Management\ProductEditeRequest;
-use App\Http\Requests\Management\AvaliableProduct;
+use App\Http\Requests\Management\AvaliableProductRequest;
 use App\Http\Requests\Management\ImagesProductsRequest;
+use App\Http\Requests\Management\ProductEditeRequest;
+use App\Http\Requests\Management\CategorieRequest;
+use App\Http\Requests\Management\ProductRequest;
 use App\Interfaces\ProductsRepositoryInterface;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\AvaliableProducts;
 use App\Models\ImagesProducts;
+use Illuminate\Http\Request;
 use App\Models\Products;
 
 class ProductsController extends Controller
@@ -69,9 +70,22 @@ class ProductsController extends Controller
     public function ShowProduct($id) {
         $showProduct = $this->ProductsRepository->getProductById($id);
         $showImages = $this->ProductsRepository->GetImagesProducts($id);
+
+        $Avaliaction = AvaliableProducts::where('avaliable_idProduct', $id)->select('stars', 'quant_evaluated')->get();
+
+        
+        $result = 0;
+        foreach ($Avaliaction as $key) {
+            $result += $key->stars;
+        }
+        
+        // dd($Avaliaction);
+
+
         return view('Home.ShowProduct', [
             'product' => $showProduct,
-            'imgProduct' => $showImages
+            'imgProduct' => $showImages,
+            'Avaliaction' => $Avaliaction,
         ]);
     }
 
@@ -111,16 +125,14 @@ class ProductsController extends Controller
         return view('Home.ProductsFiltred', ['FilterProducts' => $FilterProducts]);
     }
 
-    public function AvaliableProduct(AvaliableProduct $request){
+    public function AvaliableProduct(AvaliableProductRequest $request){
        
         $avaliaction = [
             'avaliable_idProduct' => $request->idProduct,
             'user' => $request->user,
             'stars' => $request->star,
-            'textAvaliaction' => $request->avaliacao,
-        ];
-
-        // dd($avaliaction);
+            'textAvaliaction' => $request->avaliacao, 
+        ]; 
 
         $this->ProductsRepository->Avaliaction($avaliaction);
         

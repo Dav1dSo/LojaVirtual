@@ -10,9 +10,9 @@ class AvaliableProducts extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'avaliable_idProduct ';
+    protected $primaryKey = 'avaliable_idProduct';
 
-    protected $fillable = ['stars', 'textAvaliaction', 'user', 'avaliable_idProduct'];
+    protected $fillable = ['stars', 'textAvaliaction', 'user', 'avaliable_idProduct', 'quant_evaluated'];
 
     public function Product_Avaliable() {
         return $this->belongsTo(Products::class);
