@@ -6,6 +6,7 @@ use App\Interfaces\ProductsRepositoryInterface;
 use App\Models\Products;
 use App\Models\ImagesProducts;
 use App\Models\CategoriesProducts;
+use App\Models\AvaliableProducts;
 use Illuminate\Support\Facades\DB;
 
 class ProductRepository implements ProductsRepositoryInterface
@@ -40,7 +41,10 @@ class ProductRepository implements ProductsRepositoryInterface
             $query->where('categoria', $filter);
          })->get();
     }
-    
+
+    public function Avaliaction($NewAvaliable) {
+        return AvaliableProducts::create($NewAvaliable);
+    }
 
     public function GetImagesProducts($id)
     {

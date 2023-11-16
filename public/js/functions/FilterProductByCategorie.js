@@ -14,4 +14,4 @@ $(document).on('click', '#filter', function(event) {
             $("#ProductsFiltred").html(res);
         }
     })
-})
+});

@@ -7,10 +7,10 @@
             <div class="product-details">
                 <h4>{{ $product->nome }}</h4>
                 <p class="limitedDesc">{{ $product->descricao }}</p>
-                <div class="product-bottom-details">
-                    <div class="product-price">{{ $product->valor }}</div>
+                <div class="product-bottom-details d-flex justify-content-between">
+                    <h4 class="product-price">{{ $product->valor }}</h4>
                     <a href="showProduct/{{ $product->id }}" type="button"
-                        class="ms-3 btn btn-secondary">Visualizar</a>
+                        class="text-decoration-none link-secondary">Visualizar</a>
                 </div>
             </div>
         </div>

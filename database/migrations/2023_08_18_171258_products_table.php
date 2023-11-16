@@ -12,11 +12,11 @@ return new class extends Migration {
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('nome')->nullable();
-            $table->string('valor')->nullable();
-            $table->integer('estoque')->nullable()->default(0);
-            $table->longText('descricao')->nullable();
-            $table->string('categoria')->nullable();
+            $table->string('nome');
+            $table->string('valor');
+            $table->integer('estoque')->default(0);
+            $table->longText('descricao');
+            $table->string('categoria');
             $table->timestamps();
         });
     }
