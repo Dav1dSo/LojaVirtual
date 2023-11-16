@@ -85,11 +85,14 @@ class ProductsController extends Controller
             $stars += $key->stars;
         }
         
+        $Classificacao = intval($stars / $count);
+
         return view('Home.ShowProduct', [
             'product' => $showProduct,
             'imgProduct' => $showImages,
             'Avaliaction' => $Avaliaction,
             'count' => $count,
+            'classificacao' => $Classificacao
         ]);
     }
 
@@ -131,8 +134,6 @@ class ProductsController extends Controller
 
     public function AvaliableProduct(AvaliableProductRequest $request){
       
-        // dd($request->quant_evaluated);
-        
         $teste = [
             'product_id' => $request->idProduct,
             'quant_evaluated' => $request->quant_evaluated + 1
