@@ -17,7 +17,6 @@
     @include('includes.navbar')
 
 
-
     <div id="sectionProduct">
         <div class="wrap">
             <div class="imgBx">
@@ -69,6 +68,8 @@
             </div>
         </div>
     </div>
+
+    @include('components.CardsAvaliactionProduct')
 
 </body>
 @include('includes.scriptsbootstrap')
