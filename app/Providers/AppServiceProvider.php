@@ -21,9 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        
-        $categorias = DB::table('view_categories_products')->get();
-        view()->share('NavCategorias', $categorias);    
+ //
     }
 
 }
