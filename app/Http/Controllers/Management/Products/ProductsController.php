@@ -10,10 +10,12 @@ use App\Http\Requests\Management\ProductRequest;
 use App\Interfaces\ProductsRepositoryInterface;
 use App\Models\CountAvaliactionsProducts;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Models\AvaliableProducts;
 use App\Models\ImagesProducts;
 use Illuminate\Http\Request;
 use App\Models\Products;
+
 
 class ProductsController extends Controller
 {
@@ -25,7 +27,12 @@ class ProductsController extends Controller
         $this->ProductsRepository = $ProductsRepository;
     }
 
-    public function index() {
+    public function Home() {
+        $categorias = DB::table('view_categories_products')->get();
+        return view('Home.Home', ['NavCategorias' => $categorias]);
+    }
+
+    public function indexManagemente() {
         return view('management.Produtos');
     }
     public function CreateProductForm(Request $request) {
@@ -74,7 +81,7 @@ class ProductsController extends Controller
 
         $Avaliaction = AvaliableProducts::where('avaliable_idProduct', $id)->select('stars')->get();
         $countAvalueted = CountAvaliactionsProducts::where('product_id', $id)->select('quant_evaluated')->get();
-        
+     
         $count = 0;
         foreach ($countAvalueted as $countAvaliactions) {
             $count = $countAvaliactions->quant_evaluated;
@@ -85,14 +92,18 @@ class ProductsController extends Controller
             $stars += $key->stars;
         }
         
-        $Classificacao = intval($stars / $count);
+        $Classificacao = 0;
+
+        if(isset($start) && $stars > 0 and isset($count) && $count > 0) {
+            $Classificacao = intval($stars / $count);
+        }
 
         return view('Home.ShowProduct', [
             'product' => $showProduct,
             'imgProduct' => $showImages,
             'Avaliaction' => $Avaliaction,
             'count' => $count,
-            'classificacao' => $Classificacao
+            'classificacao' => $Classificacao,
         ]);
     }
 
@@ -129,7 +140,9 @@ class ProductsController extends Controller
 
     public function FilterProductByCategorie($FilterCategorie) {
         $FilterProducts = $this->ProductsRepository->getFilterProducts($FilterCategorie);
-        return view('Home.ProductsFiltred', ['FilterProducts' => $FilterProducts]);
+        return view('Home.ProductsFiltred', [
+            'FilterProducts' => $FilterProducts,
+        ]);
     }
 
     public function AvaliableProduct(AvaliableProductRequest $request){

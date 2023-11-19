@@ -5,9 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DataTables\ManagementDatatable;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('Home.Home');
-});
+Route::get('/', [ProductsController::class, 'Home']);
 
 // --------------- -----  Profile  -----  ----------------
 
@@ -19,7 +17,7 @@ Route::middleware('auth')->group(function () {
 
 // --------------- -----  Management  -----  ----------------
 
-Route::get('/areaAdministrativa', [ProductsController::class, 'index'])->middleware(['auth', 'verified'])->name('management');
+Route::get('/areaAdministrativa', [ProductsController::class, 'indexManagemente'])->middleware(['auth', 'verified'])->name('management');
 Route::get('/newProduct',[ProductsController::class, 'CreateProductForm'])->middleware(['auth', 'verified'])->name('new_product');
 Route::post('/createProduct',[ProductsController::class, 'InsertProduct'])->middleware(['auth', 'verified'])->name('insert_product');
 Route::get('/editeProduct/{id}',[ProductsController::class, 'EditeProductForm'])->middleware(['auth', 'verified'])->name('edite_product');

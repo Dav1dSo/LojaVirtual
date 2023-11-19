@@ -16,7 +16,6 @@
 
     @include('includes.navbar')
 
-
     <div id="sectionProduct">
         <div class="wrap">
             <div class="imgBx">
@@ -38,9 +37,17 @@
                     <div class="classificacao">
                         <div class="reviews mt-3 ">
                             <ul class="stars">
-                                @for ($i = 0; $i < $classificacao; $i++)
-                                    <li><i class="fa fa-star"></i></li>
-                                @endfor
+                                @if ($classificacao > 0)
+                                    @for ($i = 0; $i < $classificacao; $i++)
+                                        <li><i class="fa fa-star"></i></li>
+                                    @endfor
+                                    @else
+                                    <li><i id="fa-grey" class="fa fa-star"></i></li>
+                                    <li><i id="fa-grey" class="fa fa-star"></i></li>
+                                    <li><i id="fa-grey" class="fa fa-star"></i></li>
+                                    <li><i id="fa-grey" class="fa fa-star"></i></li>
+                                    <li><i id="fa-grey" class="fa fa-star"></i></li>
+                                @endif
                             </ul>
                             @if (Auth::check() || Auth::viaRemember())
                                 <a href="#" id="avaliableButton">Avaliar produto</a>
