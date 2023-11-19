@@ -74,12 +74,14 @@
                 </div>
             </div>
         </div>
+        @include('components.CardsAvaliactionProduct')
     </div>
 
-    @include('components.CardsAvaliactionProduct')
+
+    @include('includes.footer')
 
 </body>
-@include('includes.scriptsbootstrap')
+    @include('includes.scriptsbootstrap')
 <script src="{{ asset('js/functions/Select_image.js') }}"></script>
 <script src="{{ asset('js/functions/AvaliableProduct.js') }}"></script>
 
