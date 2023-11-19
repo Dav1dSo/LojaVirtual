@@ -92,7 +92,11 @@ class ProductsController extends Controller
             $stars += $key->stars;
         }
         
-        $Classificacao = intval($stars / $count);
+        $Classificacao = 0;
+
+        if(isset($start) && $stars > 0 and isset($count) && $count > 0) {
+            $Classificacao = intval($stars / $count);
+        }
 
         return view('Home.ShowProduct', [
             'product' => $showProduct,

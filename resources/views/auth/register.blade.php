@@ -92,8 +92,10 @@
             <div class="col-lg-2"></div>
         </div>
     </div>
+    <footer class="fixed-bottom">
+        @include('includes.footer')
+    </footer>
 </body>
-<div class="include_footer">@include('includes.footer')</div>
 @include('includes.scriptsbootstrap')
 
 </html>
