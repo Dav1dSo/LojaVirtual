@@ -16,6 +16,8 @@
 
     @include('includes.navbar')
 
+    {{-- {{dd($UserAvaliaction)}} --}}
+
     <div id="sectionProduct">
         <div class="wrap">
             <div class="imgBx">
@@ -74,12 +76,9 @@
                 </div>
             </div>
         </div>
-        @include('components.CardsAvaliactionProduct')
     </div>
-
-
+    @include('components.CardsAvaliactionProduct')
     @include('includes.footer')
-
 </body>
     @include('includes.scriptsbootstrap')
 <script src="{{ asset('js/functions/Select_image.js') }}"></script>

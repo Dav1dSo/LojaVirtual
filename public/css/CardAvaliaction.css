@@ -7,7 +7,7 @@
     padding: 2%;
     color: black;
     border-radius: 20px;
-    max-width: 90vw;
+    width: 90vw;
     margin: auto;
     background-color: #f8fafd;
 }
@@ -21,7 +21,7 @@
 .card {
     margin: auto;
     padding: 1%;
-    max-width: 500px;
+    max-width: 25vw;
     max-height: 400px;
 }
 
@@ -37,6 +37,15 @@
     margin-top: 1vh;
     height: 10%;
     width: 10%;
+}
+
+@media (max-width: 1400px) {
+    #wrap {
+        width: 50vw;
+    }
+    .card {
+        max-width: 45vw;
+    }
 }
 
 .card{

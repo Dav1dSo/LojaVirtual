@@ -81,7 +81,11 @@ class ProductsController extends Controller
 
         $Avaliaction = AvaliableProducts::where('avaliable_idProduct', $id)->select('stars')->get();
         $countAvalueted = CountAvaliactionsProducts::where('product_id', $id)->select('quant_evaluated')->get();
-     
+
+        $GetUserAvaliaction = DB::table('view_avaliactions_users')->where('ReferProductId', $id)->get();
+        // $GetUserAvaliaction = DB::table('view_avaliactions_users')->where('ReferProductId', $id)->first();
+        
+
         $count = 0;
         foreach ($countAvalueted as $countAvaliactions) {
             $count = $countAvaliactions->quant_evaluated;
@@ -94,7 +98,7 @@ class ProductsController extends Controller
         
         $Classificacao = 0;
 
-        if(isset($start) && $stars > 0 and isset($count) && $count > 0) {
+        if(isset($stars) && $stars > 0 and isset($count) && $count > 0) {
             $Classificacao = intval($stars / $count);
         }
 
@@ -104,6 +108,7 @@ class ProductsController extends Controller
             'Avaliaction' => $Avaliaction,
             'count' => $count,
             'classificacao' => $Classificacao,
+            'UserAvaliaction' => $GetUserAvaliaction
         ]);
     }
 
