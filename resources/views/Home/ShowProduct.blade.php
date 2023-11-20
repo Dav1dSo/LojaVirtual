@@ -77,7 +77,9 @@
             </div>
         </div>
     </div>
-    @include('components.CardsAvaliactionProduct')
+    @if(count($UserAvaliaction) > 0)
+        @include('components.CardsAvaliactionProduct')
+    @endif
     @include('includes.footer')
 </body>
     @include('includes.scriptsbootstrap')
