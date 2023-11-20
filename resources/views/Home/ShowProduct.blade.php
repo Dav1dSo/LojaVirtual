@@ -16,8 +16,6 @@
 
     @include('includes.navbar')
 
-    {{-- {{dd($UserAvaliaction)}} --}}
-
     <div id="sectionProduct">
         <div class="wrap">
             <div class="imgBx">
@@ -71,7 +69,7 @@
                     </div>
                     <div class="classificacao">
                         <h3>{{ $product->valor }}</h3>
-                        <button class="btn btn-success m-2 ms-5">Adicionar ao carrinho</button>
+                        <a class="btn btn-success m-2 ms-5" href="{{ route('CartShopping') }}">Adicionar ao carrinho </a>
                     </div>
                 </div>
             </div>
