@@ -13,20 +13,17 @@ return new class extends Migration
     public function up(): void
     {
         DB::statement("
-        create or replace
-        algorithm = UNDEFINED view view_avaliactions_users as
-         select
-             avaliable_idProduct as ReferProductId,
-            user,
-            stars,
-            textAvaliaction as avaliacao,
-            date_format(str_to_date(a.created_at , '%Y-%m-%d'), '%d/%m/%Y') as avaliado
-            from avaliable_products a;
-        inner join products p ON a.avaliable_idProduct = p.id ;
+        create or replace view view_avaliactions_users as 
+	        select 
+		        ap.avaliable_idProduct,
+		        ap.user,
+		        ap.stars,
+		        ap.textAvaliaction as avaliacao,
+		        date_format(str_to_date(ap.created_at, '%Y-%m-%d'), '%d/%m/%Y') as avaliado
+	        from avaliable_products ap 
+		join products p on ap.avaliable_idProduct = p.id;
         ");
     }
-
-    
 
     /**
      * Reverse the migrations.

@@ -82,8 +82,7 @@ class ProductsController extends Controller
         $Avaliaction = AvaliableProducts::where('avaliable_idProduct', $id)->select('stars')->get();
         $countAvalueted = CountAvaliactionsProducts::where('product_id', $id)->select('quant_evaluated')->get();
 
-        $GetUserAvaliaction = DB::table('view_avaliactions_users')->where('ReferProductId', $id)->get();
-        // $GetUserAvaliaction = DB::table('view_avaliactions_users')->where('ReferProductId', $id)->first();
+        $GetUserAvaliaction = DB::table('view_avaliactions_users')->where('avaliable_idProduct', $id)->get();
         
 
         $count = 0;
