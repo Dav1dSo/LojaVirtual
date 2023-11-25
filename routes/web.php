@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Management\Products\ProductsController;
+use App\Http\Controllers\BuyProduct\Payment;
+use App\Http\Controllers\BuyProduct\CartShopping;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DataTables\ManagementDatatable;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +34,11 @@ Route::post('/newCategorie', [ProductsController::class, 'AddCategorie'])->middl
 Route::get('/galleyProducts/edit/{id}', [ProductsController::class, 'GalleryProducts'])->middleware(['auth', 'verified'])->name('edite_imagem');
 Route::any('/galleyProducts/update/{id}', [ProductsController::class, 'GalleryProductsUpdate'])->middleware(['auth', 'verified'])->name('update_imagem');
 Route::post('/galleyProducts/delete/{idImage}', [ProductsController::class, 'GalleryProductsDelete'])->middleware(['auth', 'verified'])->name('delete_imagem');
+
+// --------------- -----  Buy Product  -----  ----------------
+
+Route::post('/CartShopping', [CartShopping::class, 'CartShopping'])->middleware(['auth', 'verified'])->name('CartShopping');
+Route::get('/Payment', [Payment::class, 'Payment'])->middleware(['auth', 'verified'])->name('payment');
 
 // --------------- -----  DataTables  -----  ----------------
 

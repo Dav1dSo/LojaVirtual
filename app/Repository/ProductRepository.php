@@ -7,31 +7,32 @@ use App\Models\Products;
 use App\Models\ImagesProducts;
 use App\Models\CategoriesProducts;
 use App\Models\AvaliableProducts;
+use App\Models\CartShopping;
 use Illuminate\Support\Facades\DB;
 
 class ProductRepository implements ProductsRepositoryInterface
 {
-    public function getAllProducts() 
+    public function getAllProducts()
     {
         return Products::all();
     }
 
-    public function getProductById($id) 
+    public function getProductById($id)
     {
         return DB::table('view_products')->find($id);
     }
 
-    public function deleteProduct($id) 
+    public function deleteProduct($id)
     {
         return Products::where('id', $id)->delete();
     }
 
-    public function createProduct(array $NewProduct) 
+    public function createProduct(array $NewProduct)
     {
         return Products::create($NewProduct);
     }
 
-    public function updateProduct($id, array $UpdateProduto) 
+    public function updateProduct($id, array $UpdateProduto)
     {
         return Products::whereId($id)->update($UpdateProduto);
     }
@@ -67,4 +68,8 @@ class ProductRepository implements ProductsRepositoryInterface
     public function getCategories() {
         return DB::table('view_categories_products')->get();
     }
-}   
+
+    public function NewCartShopping($newCartShopping) {
+        return CartShopping::create($newCartShopping);
+    }
+}
