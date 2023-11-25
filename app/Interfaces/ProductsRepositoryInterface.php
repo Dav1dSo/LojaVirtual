@@ -14,4 +14,6 @@ interface ProductsRepositoryInterface
     public function getFilterProducts($filter);
     public function getCategories();
     public function Avaliaction(array $NewAvaliable);
+    public function NewCartShopping(array $newCartShopping);
+
 }   

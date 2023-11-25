@@ -41,7 +41,7 @@ body {
     border-bottom-left-radius: 20px;;
     position: relative;
     width: 45vw;
-    height: 86.7vh;
+    height: 800px;
   }
 
 .wrap .details {
@@ -176,5 +176,11 @@ body {
     .wrap .details p {
         margin-left: 0;
         max-width: 100%;
+    }
+}
+
+@media(max-width: 780px) {
+    #descricao {
+        width: 35vw;
     }
 }

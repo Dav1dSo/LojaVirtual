@@ -52,8 +52,7 @@
                             @if (Auth::check() || Auth::viaRemember())
                                 <a href="#" id="avaliableButton">Avaliar produto</a>
                             @else
-                                <a href="{{ route('login') }}" class="text-decoration-none text-secondary ms-2">Avaliar
-                                    produto</a>
+                                <a href="{{ route('login') }}" class="text-decoration-none text-secondary ms-2">Avaliar produto</a>
                             @endif
                             @error('star')
                                 <span class="text-danger">Selecione pelo menos uma estrela e tente novamente!</span>
@@ -69,7 +68,15 @@
                     </div>
                     <div class="classificacao">
                         <h3>{{ $product->valor }}</h3>
-                        <a class="btn btn-success m-2 ms-5" href="{{ route('CartShopping') }}">Adicionar ao carrinho </a>
+                            <form action="{{ route('CartShopping') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="imagem" value="{{ url("storage/$Img->imagem") }}">
+                                <input type="hidden" name="nome" value="{{ $product->nome }}">
+                                {{-- <input type="hidden" name="quantidade" value="1"> --}}
+                                <input type="hidden" name="preco" value="{{ $product->valor }}">
+                                <button type="submit" class="btn btn-success m-2 ms-5">Adicionar ao carrinho </button>
+                            </form>
                     </div>
                 </div>
             </div>
