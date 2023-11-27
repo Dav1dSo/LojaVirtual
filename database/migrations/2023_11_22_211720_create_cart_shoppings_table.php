@@ -16,6 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('Cart_IdUser');
             $table->foreign('Cart_IdUser')->references('id')->on('users')->onDelete('cascade');
             $table->string('nome');
+            $table->string('categoria');
+            $table->string('Cart_IdProduct')->unique();
             $table->string('path');
             $table->integer('quantidade')->default(1);
             $table->string('preco');

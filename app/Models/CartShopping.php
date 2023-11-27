@@ -9,8 +9,8 @@ use App\Models\User;
 class CartShopping extends Model
 {
     use HasFactory;
-    
-    protected $fillable = [ 'quantidade', 'Cart_IdUser', 'nome', 'preco', 'path' ];
+
+    protected $fillable = ['categoria', 'Cart_IdProduct', 'quantidade', 'Cart_IdUser', 'nome', 'preco', 'path' ];
 
     public function Users() {
         return $this->belongsTo(User::class);
