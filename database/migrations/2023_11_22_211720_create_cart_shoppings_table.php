@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('Cart_IdUser')->references('id')->on('users')->onDelete('cascade');
             $table->string('nome');
             $table->string('categoria');
-            $table->string('Cart_IdProduct')->unique();
+            $table->string('Cart_IdProduct');
             $table->string('path');
             $table->integer('quantidade')->default(1);
             $table->string('preco');

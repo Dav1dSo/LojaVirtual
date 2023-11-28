@@ -39,7 +39,7 @@ Route::post('/galleyProducts/delete/{idImage}', [ProductsController::class, 'Gal
 
 Route::post('/CartShopping', [CartShopping::class, 'CartShopping'])->middleware(['auth', 'verified'])->name('CartShopping');
 Route::get('/Payment', [Payment::class, 'Payment'])->middleware(['auth', 'verified'])->name('payment');
-
+Route::post('/CalTotal/{idCart}/{idUser}', [CartShopping::class, 'CalcTotal'])->middleware(['auth', 'verified'])->name('Total');
 // --------------- -----  DataTables  -----  ----------------
 
 Route::any('/products/list', [ManagementDatatable::class, 'GetProducts'])->middleware(['auth', 'verified'])->name('products.list');

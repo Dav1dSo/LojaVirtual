@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Interfaces\ProductsRepositoryInterface;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Crypt;
 
 class CartShopping extends Controller
 {
@@ -19,7 +19,6 @@ class CartShopping extends Controller
 
     public function CartShopping(Request $request)
     {
-
         $newCart = [
             'categoria' => $request->categoria,
             'Cart_IdUser' => $request->id,
@@ -29,19 +28,35 @@ class CartShopping extends Controller
             'preco' => $request->preco,
         ];
 
-        //dd($newCart);
-
-        if (!DB::table('cart_shoppings')->where('Cart_IdProduct', $request->IdProduct)->first()) {
-            $this->ProductsRepository->NewCartShopping($newCart)->where();
+        if (!DB::table('cart_shoppings')->where('Cart_IdProduct', $request->IdProduct)->where('Cart_IdUser', $request->id)->first()) {
+            $this->ProductsRepository->NewCartShopping($newCart);
         }
 
-        $myCart = DB::table('cart_shoppings')->get();
+        $myCart = DB::table('cart_shoppings')->where('Cart_IdUser', $request->id)->get();
 
-        $countCart = count($myCart);
+        $quantItems = count($myCart);
+
+        $cart = $myCart->toArray();
+
+        $cartId = $cart[0]->id;
+        $cartUser = $cart[0]->Cart_IdUser;
 
         return view('Cart.CartShopping', [
             'myCart' => $myCart,
-            'count' => $countCart,
+            'count' => $quantItems,
+            'cartId' => Crypt::encrypt($cartId),
+            'CartIdUser' => Crypt::encrypt($cartUser),
+
         ]);
+    }
+
+    public function CalcTotal($idCart, $idUser) {
+
+        $idCart = Crypt::decrypt($idCart);
+        $idUser = Crypt::decrypt($idUser);
+
+        $precos = DB::table('cart_shoppings')->where('id', $idCart)->where('Cart_IdUser', $idUser)->select('preco')->get();
+
+        return $precos;
     }
 }

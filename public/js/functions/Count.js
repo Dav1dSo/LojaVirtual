@@ -1,19 +1,24 @@
 $(document).on('click', '.count', function(e) {
     e.preventDefault();
 
-    let quantidade = $("#quantidade").text();
+    let idCardProduct = $(this).attr('id');
+
+    console.log($("#quantidade" + idCardProduct).text());
+
+
+    let quantidade = $("#quantidade" + idCardProduct).text();
     quantidade = parseInt(quantidade);
 
     if($(this).attr('name') == "subtrair") {
         quantidade --
-        if($("#quantidade").text() !== '0') {
-            $("#quantidade").text(quantidade);
+        if($("#quantidade" + idCardProduct).text() !== '0') {
+            $("#quantidade" + idCardProduct).text(quantidade);
         }
     }
 
     else if ($(this).attr('name') == "adicionar") {
         quantidade ++
-        $("#quantidade").text(quantidade);
+        $("#quantidade" + idCardProduct).text(quantidade);
     }
 
 });
