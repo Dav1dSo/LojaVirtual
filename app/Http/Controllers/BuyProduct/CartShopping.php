@@ -55,7 +55,12 @@ class CartShopping extends Controller
         $idCart = Crypt::decrypt($idCart);
         $idUser = Crypt::decrypt($idUser);
 
-        $precos = DB::table('cart_shoppings')->where('id', $idCart)->where('Cart_IdUser', $idUser)->select('preco')->get();
+        $precos = DB::table('cart_shoppings')->where('Cart_IdUser', $idUser)->select('preco')->get();
+
+        foreach($precos as $preco) {
+            $preco = (float)str_replace('R$ ', '', $preco->preco);
+            
+        }
 
         return $precos;
     }
