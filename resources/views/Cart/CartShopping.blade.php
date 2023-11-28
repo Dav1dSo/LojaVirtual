@@ -27,7 +27,7 @@
                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                         <div>
                                             <p class="mb-1">Seus produtos.</p>
-                                            <p class="mb-0">Você tem 4 itens no carrinho.</p>
+                                            <p class="mb-0">Você tem {{ $count }} itens no carrinho.</p>
                                         </div>
                                     </div>
                                      <h1>
@@ -51,9 +51,9 @@
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center mr-5">
                                                     <div style="width: 50px;" class="d-flex">
-                                                        <button class="rounded-5 border-0 p-2 mr-2 text-danger fs-4">-</button>
-                                                            <h5 class="fw-normal mt-3 border-bottom">2</h5>
-                                                        <button class="rounded-5 border-0 p-1 text-success fs-4 ms-3">+</button>
+                                                        <button name="subtrair" class="count rounded-5 border-0 p-2 mr-2 text-danger fs-4">-</button>
+                                                            <h5 id="quantidade" class="fw-normal mt-3 border-bottom">2</h5>
+                                                        <button name="adicionar" class="count rounded-5 border-0 p-1 text-success fs-4 ms-3">+</button>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex flex-row align-items-center">
@@ -108,5 +108,6 @@
 </body>
 
 @include('includes.scriptsbootstrap')
+<script src="{{ asset('js/functions/Count.js') }}"></script>
 
 </html>

@@ -37,6 +37,11 @@ class CartShopping extends Controller
 
         $myCart = DB::table('cart_shoppings')->get();
 
-        return view('Cart.CartShopping', ['myCart' => $myCart]);
+        $countCart = count($myCart);
+
+        return view('Cart.CartShopping', [
+            'myCart' => $myCart,
+            'count' => $countCart,
+        ]);
     }
 }
