@@ -52,12 +52,9 @@ class CartShopping extends Controller
 
     public function CalcTotal($idProductCart, $idUser, Request $request) {
 
-        // $idProductCart = Crypt::decrypt($idProductCart);
         $idUser = Crypt::decrypt($idUser);
         $quantidadeDoPedido = $request->quantidade;
         $quantidade = (int) $quantidadeDoPedido;
-
-        // dd($idCart);
 
         DB::table("cart_shoppings")->where('id', $idProductCart)->update(['quantidade' => $quantidade]);
 
