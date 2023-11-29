@@ -50,28 +50,36 @@ class CartShopping extends Controller
         ]);
     }
 
-    public function CalcTotal($idCart, $idUser) {
+    public function CalcTotal($idProductCart, $idUser, Request $request) {
 
-        $idCart = Crypt::decrypt($idCart);
+        // $idProductCart = Crypt::decrypt($idProductCart);
         $idUser = Crypt::decrypt($idUser);
+        $quantidadeDoPedido = $request->quantidade;
+        $quantidade = (int) $quantidadeDoPedido;
 
-        $precos = DB::table('cart_shoppings')->where('Cart_IdUser', $idUser)->select('preco')->get()->toArray();
+        // dd($idCart);
 
+        DB::table("cart_shoppings")->where('id', $idProductCart)->update(['quantidade' => $quantidade]);
+
+        $precos = DB::table('cart_shoppings')->where('Cart_IdUser', $idUser)->select('preco', 'quantidade')->get()->toArray();
 
         function converterParaNumero($valor) {
             $valorProduct = str_replace(['R$', ',', '.'], '', $valor);
             return $valorProduct = (float) $valorProduct;
         }
 
-        // Inicializar a variável para armazenar a soma
         $soma_precos = 0;
 
-        // Calcular a soma dos preços convertidos
         foreach ($precos as $preco) {
-            $soma_precos += converterParaNumero($preco->preco);
+            $preco = converterParaNumero($preco->preco) * $preco->quantidade;
+            $soma_precos += $preco;
         }
 
-        return $soma_precos = number_format($soma_precos / 100, 2, ',', '.');
+        $res = [
+            'preco' => number_format($soma_precos / 100, 2, ',', '.')
+        ];
+
+        return $res;
 
     }
 }

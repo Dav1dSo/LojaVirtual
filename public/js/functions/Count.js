@@ -3,9 +3,6 @@ $(document).on('click', '.count', function(e) {
 
     let idCardProduct = $(this).attr('id');
 
-    console.log($("#quantidade" + idCardProduct).text());
-
-
     let quantidade = $("#quantidade" + idCardProduct).text();
     quantidade = parseInt(quantidade);
 

@@ -33,8 +33,6 @@
                                                 <p class="mb-0">Você tem {{ $count }} itens no carrinho.</p>
                                             </div>
                                         </div>
-
-
                                         @foreach ($myCart as $infoProduct)
                                             <div class="card mb-3">
                                                 <div class="card-body">
@@ -50,14 +48,14 @@
                                                                     style="width: 65px;">
                                                             </div>
                                                             <div class="ms-3">
-                                                                <h5>Iphone 11 pro</h5>
+                                                                <h5>Ip{{ $infoProduct->nome }}</h5>
                                                                 <p class="small mb-0">{{ $infoProduct->categoria }}</p>
                                                             </div>
-                                                        </div>
+                                                        </div>  
                                                         <div class="d-flex flex-row align-items-center mr-5">
                                                             <div style="width: 50px;" class="d-flex">
                                                                 <button name="subtrair" id="{{ $infoProduct->id }}" class="count rounded-5 border-0 p-2 mr-2 text-danger fs-4">-</button>
-                                                                <h5 id="quantidade{{ $infoProduct->id }}" class="fw-normal mt-3 border-bottom">2</h5>
+                                                                <h5 id="quantidade{{ $infoProduct->id }}" class="quantidade fw-normal mt-3 border-bottom">{{ $infoProduct->quantidade }}</h5>
                                                                 <button name="adicionar" id="{{ $infoProduct->id }}" class="count rounded-5 border-0 p-1 text-success fs-4 ms-3">+</button>
                                                             </div>
                                                         </div>
