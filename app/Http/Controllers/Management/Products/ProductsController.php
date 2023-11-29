@@ -36,7 +36,7 @@ class ProductsController extends Controller
         return view('management.Produtos');
     }
     public function CreateProductForm(Request $request) {
-        $categorias = $this->ProductsRepository->getCategories(); 
+        $categorias = $this->ProductsRepository->getCategories();
         return view('management.CreateProduct', ['categorias' => $categorias]);
     }
 
@@ -83,7 +83,7 @@ class ProductsController extends Controller
         $countAvalueted = CountAvaliactionsProducts::where('product_id', $id)->select('quant_evaluated')->get();
 
         $GetUserAvaliaction = DB::table('view_avaliactions_users')->where('avaliable_idProduct', $id)->get();
-        
+
 
         $count = 0;
         foreach ($countAvalueted as $countAvaliactions) {
@@ -94,7 +94,7 @@ class ProductsController extends Controller
         foreach ($Avaliaction as $key) {
             $stars += $key->stars;
         }
-        
+
         $Classificacao = 0;
 
         if(isset($stars) && $stars > 0 and isset($count) && $count > 0) {
@@ -112,9 +112,11 @@ class ProductsController extends Controller
     }
 
     public function EditeProductForm($id) {
-        $categorias = $this->ProductsRepository->getCategories(); 
+
+        $categorias = $this->ProductsRepository->getCategories();
         $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
         $dataProducts = $this->ProductsRepository->getProductById($id);
+
         return view('management.EditProduct', [
             'dataProducts' => $dataProducts,
             'gallery' => $gallery,
@@ -123,7 +125,7 @@ class ProductsController extends Controller
     }
 
     public function EditeProduct($id, ProductEditeRequest $request) {
-        
+
         $EditeProductData = [
             'nome' => $request->nome,
             'valor' => $request->valor,
@@ -150,23 +152,23 @@ class ProductsController extends Controller
     }
 
     public function AvaliableProduct(AvaliableProductRequest $request){
-      
-        $teste = [
+
+        $avaliactionCreate = [
             'product_id' => $request->idProduct,
             'quant_evaluated' => $request->quant_evaluated + 1
         ];
-      
-        CountAvaliactionsProducts::create($teste);
-       
+
+        CountAvaliactionsProducts::create($avaliactionCreate);
+
         $avaliaction = [
             'avaliable_idProduct' => $request->idProduct,
             'user' => $request->user,
             'stars' => $request->star,
-            'textAvaliaction' => $request->avaliacao, 
-        ]; 
+            'textAvaliaction' => $request->avaliacao,
+        ];
 
         $this->ProductsRepository->Avaliaction($avaliaction);
-        
+
         try {
             return redirect()->back()->with('Obrigado por avaliar nosso produto!');
         } catch (\Throwable $th) {
@@ -193,7 +195,7 @@ class ProductsController extends Controller
        return view('management.GalleryProducts', ['gallery' => $gallery]);
     }
 
-    public function GalleryProductsUpdate($id, ImagesProductsRequest $request) { 
+    public function GalleryProductsUpdate($id, ImagesProductsRequest $request) {
         if($request->hasFile('imagem') && $request->imagem) {
             $prepareImagem = $request->file('imagem')->store('img/Products', 'public');
             $uploadImage = ['path' => $prepareImagem];

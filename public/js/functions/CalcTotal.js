@@ -11,7 +11,7 @@ $(document).on('click', 'button', function(e){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
         },
         success: function(res) {
-            console.log(res);
+            $("#totaProdutos").text(`R$ ${res}`);
         }
     });
 

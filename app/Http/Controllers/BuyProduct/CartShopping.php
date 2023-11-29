@@ -55,13 +55,23 @@ class CartShopping extends Controller
         $idCart = Crypt::decrypt($idCart);
         $idUser = Crypt::decrypt($idUser);
 
-        $precos = DB::table('cart_shoppings')->where('Cart_IdUser', $idUser)->select('preco')->get();
+        $precos = DB::table('cart_shoppings')->where('Cart_IdUser', $idUser)->select('preco')->get()->toArray();
 
-        foreach($precos as $preco) {
-            $preco = (float)str_replace('R$ ', '', $preco->preco);
-            
+
+        function converterParaNumero($valor) {
+            $valorProduct = str_replace(['R$', ',', '.'], '', $valor);
+            return $valorProduct = (float) $valorProduct;
         }
 
-        return $precos;
+        // Inicializar a variável para armazenar a soma
+        $soma_precos = 0;
+
+        // Calcular a soma dos preços convertidos
+        foreach ($precos as $preco) {
+            $soma_precos += converterParaNumero($preco->preco);
+        }
+
+        return $soma_precos = number_format($soma_precos / 100, 2, ',', '.');
+
     }
 }

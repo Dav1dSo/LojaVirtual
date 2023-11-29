@@ -80,7 +80,7 @@
                                                 <hr class="my-4">
                                                 <div class="d-flex justify-content-between">
                                                     <p class="mb-2">Subtotal</p>
-                                                    <p class="mb-2">$ 4798.00</p>
+                                                    <p id="totaProdutos" class="mb-2">$ 4798.00</p>
                                                 </div>
                                                 <div class="d-flex justify-content-between">
                                                     <p class="mb-2">Envio</p>
