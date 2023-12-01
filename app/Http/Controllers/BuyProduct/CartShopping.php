@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Interfaces\ProductsRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
+use App\Models\TotalCart;
 
 class CartShopping extends Controller
 {
@@ -33,11 +34,13 @@ class CartShopping extends Controller
         }
 
         $myCart = DB::table('cart_shoppings')->where('Cart_IdUser', $request->id)->get();
+        $idUser = $request->id;
+        $Amount = TotalCart::where('IdUSer', $idUser)->select('totalCart')->get();
 
         $quantItems = count($myCart);
 
-        $cart = $myCart->toArray();
 
+        $cart = $myCart->toArray();
         $cartId = $cart[0]->id;
         $cartUser = $cart[0]->Cart_IdUser;
 
@@ -46,7 +49,7 @@ class CartShopping extends Controller
             'count' => $quantItems,
             'cartId' => Crypt::encrypt($cartId),
             'CartIdUser' => Crypt::encrypt($cartUser),
-
+            'amount' => $Amount[0]->totalCart
         ]);
     }
 
@@ -72,8 +75,18 @@ class CartShopping extends Controller
             $soma_precos += $preco;
         }
 
+        $UpdateAmount = [
+            'IdUser' => $idUser,
+            'totalCart' => number_format($soma_precos / 100, 2, ',', '.')
+        ];
+
+        !TotalCart::where('IdUSer', $idUser)->get() ? TotalCart::create($UpdateAmount) : TotalCart::where('IdUSer', $idUser)->update($UpdateAmount);;
+
+        $Amount = TotalCart::where('IdUSer', $idUser)->select('totalCart')->get();
+
         $res = [
-            'preco' => number_format($soma_precos / 100, 2, ',', '.')
+            'preco' => number_format($soma_precos / 100, 2, ',', '.'),
+            'amount' => $Amount
         ];
 
         return $res;

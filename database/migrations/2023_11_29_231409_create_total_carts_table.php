@@ -27,6 +27,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('total_carts');
         $table->foreignId('IdUser')->constrained()->onDelete('cascade');
-
     }
 };

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\CartShopping;
 
 class TotalCart extends Model
 {
@@ -12,14 +13,8 @@ class TotalCart extends Model
 
     public $fillable = ['totalCart', 'IdUser'];
 
-    /**
-     * Get the CartTotal that owns the TotalCart
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function UserCart(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-
 }

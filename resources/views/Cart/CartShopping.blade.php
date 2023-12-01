@@ -51,7 +51,7 @@
                                                                 <h5>Ip{{ $infoProduct->nome }}</h5>
                                                                 <p class="small mb-0">{{ $infoProduct->categoria }}</p>
                                                             </div>
-                                                        </div>  
+                                                        </div>
                                                         <div class="d-flex flex-row align-items-center mr-5">
                                                             <div style="width: 50px;" class="d-flex">
                                                                 <button name="subtrair" id="{{ $infoProduct->id }}" class="count rounded-5 border-0 p-2 mr-2 text-danger fs-4">-</button>
@@ -78,20 +78,21 @@
                                                 <hr class="my-4">
                                                 <div class="d-flex justify-content-between">
                                                     <p class="mb-2">Subtotal</p>
-                                                    <p id="totaProdutos" class="mb-2">$ 4798.00</p>
+                                                    <p id="totaProdutos" class="mb-2 amount">R$ {{ $amount }}</p>
                                                 </div>
                                                 <div class="d-flex justify-content-between">
                                                     <p class="mb-2">Envio</p>
-                                                    <p class="mb-2">R$ 20.00</p>
+                                                    <p class="mb-2">R$ 00.00</p>
                                                 </div>
                                                 <div class="d-flex justify-content-between mb-4">
                                                     <h4 class="mb-2">Total(Incl. taxas)</h4>
-                                                    <h4 class="mb-2">R$ 4818.00</h4>
+                                                    <h4 class="mb-2 amount">R$ {{ $amount }}</h4>
                                                 </div>
                                                 <button type="button" class="btn btn-light btn-block btn-lg">
                                                     <div class="text-center">
-                                                        <span>Realizar compra<i
-                                                                class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                                        <span>Realizar compra
+                                                            <i class="fas fa-long-arrow-alt-right ms-2"></i>
+                                                        </span>
                                                     </div>
                                                 </button>
                                             </div>
@@ -106,7 +107,10 @@
         </section>
     </div>
 
+<footer style="margin-top: 20vh">
     @include('includes.footer')
+</footer>
+
 
 </body>
 

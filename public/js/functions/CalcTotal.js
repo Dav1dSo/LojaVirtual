@@ -1,7 +1,6 @@
 $(document).on('click', 'button', function(e){
     e.preventDefault();
 
-    let idCart = $("#cartId").val();
     let idProductCart = $(this).attr('id');
     let idUser = $("#CartIdUser").val();
 
@@ -19,7 +18,7 @@ $(document).on('click', 'button', function(e){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
         },
         success: function(res) {
-            $("#totaProdutos").text(`R$ ${res.preco}`);
+            $(".amount").text(`R$ ${res.preco}`);
         }
     });
 
