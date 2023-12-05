@@ -26,7 +26,10 @@ return new class extends Migration
                 date_format(str_to_date(p.updated_at, '%Y-%m-%d'), '%d/%m/%Y') as `atualizado`
             from
                 products p
-            join images_products ip on p.id = ip.products_id;"
+            join images_products ip on p.id = ip.products_id
+            WHERE
+                p.deleted_at is NULL and
+                ip.deleted_at is NULL;"
         );
     }
 

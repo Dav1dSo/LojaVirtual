@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('categories_products', function (Blueprint $table) {
             $table->id();
             $table->string('categoria');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

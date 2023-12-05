@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\CartShopping;
+use App\Models\TotalCart;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
@@ -46,5 +48,15 @@ class User extends Authenticatable
 
     public function CartShopping() {
         return $this->hasMany(CartShopping::class);
+    }
+
+    /**
+     * Get all of the CartTotal for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function CartTotal(): HasMany
+    {
+        return $this->hasMany(TotalCart::class);
     }
 }

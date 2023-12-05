@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('images_products', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedBigInteger('products_id');
-            $table->string('path');
-            $table->foreign('products_id')->references('id')->on('products')->onDelete('cascade');
+        Schema::create('total_carts', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('IdUser');
+            $table->string('totalCart');
+            $table->foreign('IdUser')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
-
         });
     }
 
@@ -27,7 +26,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('images_products');
-        $table->foreignId('products_id')->constrained()->onDelete('cascade');
+        Schema::dropIfExists('total_carts');
+        $table->foreignId('IdUser')->constrained()->onDelete('cascade');
     }
 };

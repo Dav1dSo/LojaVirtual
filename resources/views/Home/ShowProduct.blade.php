@@ -41,7 +41,7 @@
                                     @for ($i = 0; $i < $classificacao; $i++)
                                         <li><i class="fa fa-star"></i></li>
                                     @endfor
-                                    @else
+                                @else
                                     <li><i id="fa-grey" class="fa fa-star"></i></li>
                                     <li><i id="fa-grey" class="fa fa-star"></i></li>
                                     <li><i id="fa-grey" class="fa fa-star"></i></li>
@@ -52,7 +52,8 @@
                             @if (Auth::check() || Auth::viaRemember())
                                 <a href="#" id="avaliableButton">Avaliar produto</a>
                             @else
-                                <a href="{{ route('login') }}" class="text-decoration-none text-secondary ms-2">Avaliar produto</a>
+                                <a href="{{ route('login') }}" class="text-decoration-none text-secondary ms-2">Avaliar
+                                    produto</a>
                             @endif
                             @error('star')
                                 <span class="text-danger">Selecione pelo menos uma estrela e tente novamente!</span>
@@ -68,26 +69,27 @@
                     </div>
                     <div class="classificacao">
                         <h3>{{ $product->valor }}</h3>
-                            <form action="{{ route('CartShopping') }}" method="POST">
-                                @csrf
+                        <form action="{{ route('CartShopping') }}" method="POST">
+                            @csrf
+                            @if(Auth::check() || Auth::viaRemember())
                                 <input type="hidden" name="id" value="{{ Auth::user()->id }}">
-                                <input type="hidden" name="imagem" value="{{ url("storage/$Img->imagem") }}">
-                                <input type="hidden" name="nome" value="{{ $product->nome }}">
-                                {{-- <input type="hidden" name="quantidade" value="1"> --}}
-                                <input type="hidden" name="preco" value="{{ $product->valor }}">
-                                <button type="submit" class="btn btn-success m-2 ms-5">Adicionar ao carrinho </button>
-                            </form>
+                            @endif
+                            <input type="hidden" name="IdProduct" value="{{ $product->id }}">
+                            <button type="submit" class="btn btn-success m-2 ms-5">Adicionar ao carrinho </button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @if(count($UserAvaliaction) > 0)
+    @if (count($UserAvaliaction) > 0)
         @include('components.CardsAvaliactionProduct')
     @endif
-    @include('includes.footer')
+    <div class="mt-5">
+        @include('includes.footer')
+    </div>
 </body>
-    @include('includes.scriptsbootstrap')
+@include('includes.scriptsbootstrap')
 <script src="{{ asset('js/functions/Select_image.js') }}"></script>
 <script src="{{ asset('js/functions/AvaliableProduct.js') }}"></script>
 
