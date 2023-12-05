@@ -2,7 +2,7 @@
 
 namespace App\Interfaces;
 
-interface ProductsRepositoryInterface 
+interface ProductsRepositoryInterface
 {
     public function getAllProducts();
     public function getProductById($id);
@@ -15,5 +15,6 @@ interface ProductsRepositoryInterface
     public function getCategories();
     public function Avaliaction(array $NewAvaliable);
     public function NewCartShopping(array $newCartShopping);
+    public function TotalCart(array $newCartShopping);
 
-}   
+}

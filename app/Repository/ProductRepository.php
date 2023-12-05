@@ -8,6 +8,7 @@ use App\Models\ImagesProducts;
 use App\Models\CategoriesProducts;
 use App\Models\AvaliableProducts;
 use App\Models\CartShopping;
+use App\Models\TotalCart;
 use Illuminate\Support\Facades\DB;
 
 class ProductRepository implements ProductsRepositoryInterface
@@ -71,5 +72,9 @@ class ProductRepository implements ProductsRepositoryInterface
 
     public function NewCartShopping($newCartShopping) {
         return CartShopping::create($newCartShopping);
+    }
+
+    public function TotalCart($DataAmount){
+        return TotalCart::create($DataAmount);
     }
 }

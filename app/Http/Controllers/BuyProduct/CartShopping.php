@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\BuyProduct;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Interfaces\ProductsRepositoryInterface;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use App\Models\TotalCart;
 
 class CartShopping extends Controller
@@ -20,48 +20,71 @@ class CartShopping extends Controller
 
     public function CartShopping(Request $request)
     {
+        $IdUser = $request->id;
+
         $newCart = [
-            'categoria' => $request->categoria,
-            'Cart_IdUser' => $request->id,
+            'Cart_IdUser' => $IdUser,
             'Cart_IdProduct' => $request->IdProduct,
-            'nome' => $request->nome,
-            'path' => $request->imagem,
-            'preco' => $request->preco,
         ];
 
-        if (!DB::table('cart_shoppings')->where('Cart_IdProduct', $request->IdProduct)->where('Cart_IdUser', $request->id)->first()) {
+        if (!DB::table('cart_shoppings')->where('Cart_IdProduct', $request->IdProduct)->where('Cart_IdUser', $IdUser)->first()) {
             $this->ProductsRepository->NewCartShopping($newCart);
         }
 
-        $myCart = DB::table('cart_shoppings')->where('Cart_IdUser', $request->id)->get();
-        $idUser = $request->id;
-        $Amount = TotalCart::where('IdUSer', $idUser)->select('totalCart')->get();
+        $myCart = DB::table('view_shopping_cart')->where('IdUser', $IdUser)->get();
+        $precos = DB::table('view_shopping_cart')->where('IdUser', $IdUser)->select('valor', 'quantidade')->get()->toArray();
+
+        function ConvNumber($valor) {
+            $valorProduct = str_replace(['R$', ',', '.'], '', $valor);
+            return $valorProduct = (float) $valorProduct;
+        }
+
+        $soma_precos = 0;
+
+        foreach ($precos as $preco) {
+            $precoProduct = ConvNumber($preco->valor) * $preco->quantidade;
+            $soma_precos += $precoProduct;
+        }
+
+        $DataAmount = [
+            'IdUser' => $IdUser,
+            'totalCart' => number_format($soma_precos / 100, 2, ',', '.')
+        ];
+
+        if(!TotalCart::where('IdUser', $IdUser)->get()) {
+            $this->ProductsRepository->TotalCart($DataAmount);
+        }
+
+        $Amount = TotalCart::where('IdUser', $IdUser)->select('totalCart')->get();
+
+        // dd($Amount);
+
+        $Amount = !count($Amount) ? 0.0 : $Amount[0]->totalCart;
 
         $quantItems = count($myCart);
 
-
         $cart = $myCart->toArray();
-        $cartId = $cart[0]->id;
-        $cartUser = $cart[0]->Cart_IdUser;
+        $cartId = $cart[0]->IdCart;
+        $cartUser = $cart[0]->IdUser;
 
         return view('Cart.CartShopping', [
             'myCart' => $myCart,
             'count' => $quantItems,
             'cartId' => Crypt::encrypt($cartId),
             'CartIdUser' => Crypt::encrypt($cartUser),
-            'amount' => $Amount[0]->totalCart
+            'amount' => $Amount
         ]);
     }
 
-    public function CalcTotal($idProductCart, $idUser, Request $request) {
+    public function CalcTotal($idProductCart, $IdUser, Request $request) {
 
-        $idUser = Crypt::decrypt($idUser);
+        $IdUser = Crypt::decrypt($IdUser);
         $quantidadeDoPedido = $request->quantidade;
         $quantidade = (int) $quantidadeDoPedido;
 
-        DB::table("cart_shoppings")->where('id', $idProductCart)->update(['quantidade' => $quantidade]);
+        DB::table("cart_shoppings")->where('Cart_IdProduct', $idProductCart)->update(['quantidade' => $quantidade]);
 
-        $precos = DB::table('cart_shoppings')->where('Cart_IdUser', $idUser)->select('preco', 'quantidade')->get()->toArray();
+        $precos = DB::table('view_shopping_cart')->where('IdUser', $IdUser)->select('valor', 'quantidade')->get()->toArray();
 
         function converterParaNumero($valor) {
             $valorProduct = str_replace(['R$', ',', '.'], '', $valor);
@@ -71,18 +94,18 @@ class CartShopping extends Controller
         $soma_precos = 0;
 
         foreach ($precos as $preco) {
-            $preco = converterParaNumero($preco->preco) * $preco->quantidade;
-            $soma_precos += $preco;
+            $precoProduct = converterParaNumero($preco->valor) * $preco->quantidade;
+            $soma_precos += $precoProduct;
         }
 
-        $UpdateAmount = [
-            'IdUser' => $idUser,
+        $DataAmount = [
+            'IdUser' => $IdUser,
             'totalCart' => number_format($soma_precos / 100, 2, ',', '.')
         ];
 
-        !TotalCart::where('IdUSer', $idUser)->get() ? TotalCart::create($UpdateAmount) : TotalCart::where('IdUSer', $idUser)->update($UpdateAmount);;
+        TotalCart::where('IdUser', $IdUser)->update($DataAmount);
 
-        $Amount = TotalCart::where('IdUSer', $idUser)->select('totalCart')->get();
+        $Amount = TotalCart::where('IdUser', $IdUser)->select('totalCart')->get();
 
         $res = [
             'preco' => number_format($soma_precos / 100, 2, ',', '.'),
@@ -90,6 +113,5 @@ class CartShopping extends Controller
         ];
 
         return $res;
-
     }
 }

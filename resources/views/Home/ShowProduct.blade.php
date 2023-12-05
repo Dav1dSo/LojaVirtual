@@ -74,11 +74,7 @@
                             @if(Auth::check() || Auth::viaRemember())
                                 <input type="hidden" name="id" value="{{ Auth::user()->id }}">
                             @endif
-                            <input type="hidden" name="imagem" value="{{ url("storage/$Img->imagem") }}">
-                            <input type="hidden" name="nome" value="{{ $product->nome }}">
                             <input type="hidden" name="IdProduct" value="{{ $product->id }}">
-                            <input type="hidden" name="preco" value="{{ $product->valor }}">
-                            <input type="hidden" name="categoria" value="{{ $product->categoria }}">
                             <button type="submit" class="btn btn-success m-2 ms-5">Adicionar ao carrinho </button>
                         </form>
                     </div>

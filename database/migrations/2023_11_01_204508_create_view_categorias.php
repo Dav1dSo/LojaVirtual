@@ -17,6 +17,7 @@ return new class extends Migration
                 `cp`.`categoria` as `categoria`
             from
                 `categories_products` `cp`
+                WHERE cp.deleted_at is NULL
             order by
                 `cp`.`created_at` desc;
         ");

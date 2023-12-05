@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('IdUser');
             $table->string('totalCart');
             $table->foreign('IdUser')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
