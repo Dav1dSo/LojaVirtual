@@ -6,7 +6,7 @@
                 <div class="p-3 d-flex justify-content-end">
                     <div class="d-none AfterClick{{ $imageProduct->id }}">
                         <form id="formUpdateImage" enctype="multipart/form-data" method="POST" action="/galleyProducts/update/{{ $imageProduct->id }}">
-                            @csrf 
+                            @csrf
                             <div class="d-flex justify-content-end">
                                 <input type="file" class="form-control @error('imagem') is-invalid @enderror " id="imagem" name="imagem">
                                 <div class="d-flex">
@@ -30,6 +30,6 @@
             </div>
         </div>
     @endforeach
-</div> 
+</div>
 
 
