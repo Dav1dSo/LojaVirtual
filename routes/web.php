@@ -38,6 +38,8 @@ Route::any('/galleyProducts/update/{id}', [ProductsController::class, 'GalleryPr
 Route::post('/galleyProducts/delete/{idImage}', [ProductsController::class, 'GalleryProductsDelete'])->middleware(['auth', 'verified'])->name('delete_imagem');
 
 Route::get('/getArticles', [ArticlesController::class, 'GetArticles'])->middleware(['auth', 'verified'])->name('management_articles');
+Route::get('/CreateArticles', [ArticlesController::class, 'CreateArticle'])->middleware(['auth', 'verified'])->name('management_add_article');
+Route::post('/CreateArticles', [ArticlesController::class, 'CreateArticle'])->middleware(['auth', 'verified'])->name('management_create_article');
 
 // --------------- -----  Buy Product  -----  ----------------
 
