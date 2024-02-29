@@ -21,7 +21,7 @@
     <div id="contentArticles">
         <div class="form-group col-md-8 m-auto mt-4">
             <div class="text-right mt-2 mb-3">
-                <button class="btn btn-success">Criar artigo</button>
+                <a href="{{ route('management_add_article') }}" class="btn btn-success">Criar artigo</a>
             </div>
             <div class="card text-center">
                 <div class="card-header d-flex justify-content-center align-items-center">

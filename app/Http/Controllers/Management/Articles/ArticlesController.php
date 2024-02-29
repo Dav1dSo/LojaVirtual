@@ -10,4 +10,8 @@ class ArticlesController extends Controller
     public function GetArticles () {
         return view('management.ViewsArticles.Articles');
     }
+
+    public function CreateArticle ()  {
+        return view('management.ViewsArticles.formCreateArticle');
+    }
 }
