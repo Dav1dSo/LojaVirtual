@@ -5,6 +5,9 @@
               <a class="nav-link text-secondary border-bottom" href="{{ route('management') }}">Produtos</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link text-secondary border-bottom" href="{{ route('management_articles') }}">Artigos</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link text-secondary border-bottom" href="#">Estoque</a>
             </li>
             <li class="nav-item">

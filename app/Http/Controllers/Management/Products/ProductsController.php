@@ -33,11 +33,11 @@ class ProductsController extends Controller
     }
 
     public function indexManagemente() {
-        return view('management.Produtos');
+        return view('management.ViewsProducts.Produtos');
     }
     public function CreateProductForm(Request $request) {
         $categorias = $this->ProductsRepository->getCategories();
-        return view('management.CreateProduct', ['categorias' => $categorias]);
+        return view('management.ViewsProducts.CreateProduct', ['categorias' => $categorias]);
     }
 
     public function InsertProduct(ProductRequest $request) {
@@ -117,7 +117,7 @@ class ProductsController extends Controller
         $gallery = collect($this->ProductsRepository->GetImagesProducts($id));
         $dataProducts = $this->ProductsRepository->getProductById($id);
 
-        return view('management.EditProduct', [
+        return view('management.ViewsProducts.EditProduct', [
             'dataProducts' => $dataProducts,
             'gallery' => $gallery,
             'categorias' => $categorias

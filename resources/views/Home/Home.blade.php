@@ -11,7 +11,7 @@
 </head>
 <style>
 
-    * { margin: 0, padding: 0;}
+    * { margin: 0, padding: 0 }
 
     #Carrossel { margin-top: 9vh; }
 
@@ -20,7 +20,6 @@
         width: 100vw;
     }
 
-    #destaques { margin-top: 8vh }
 
     .cardProduct {
         min-width: 90px;
@@ -46,14 +45,14 @@
         height: 40vh;
     }
 
-</style> 
-    
+</style>
+
 <body>
     <div class="position-relative">
         @include('includes.navbar')
 
         <div id="Carrossel">@include('Home.CarrosselCategories')</div>
-        
+
         <div id="destaques">@include('Home.Destaques')</div>
 
         @include('Home.NavCategories')
@@ -65,5 +64,5 @@
 </body>
     @include('includes.scriptsbootstrap')
     <script src="{{ asset('js/functions/FilterProductByCategorie.js') }}"></script>
-    
+
 </html>

@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        {{-- <div class="col">
             <div class="card m-4">
                 <img class="cardImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRswds-Wm8iru-sMVOH74cv3JgoMZAu3DjTNw&usqp=CAU"
                     class="card-img-top" alt="...">
@@ -98,7 +98,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
-  

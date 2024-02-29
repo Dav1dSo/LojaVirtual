@@ -57,8 +57,6 @@ class CartShopping extends Controller
 
         $Amount = TotalCart::where('IdUser', $IdUser)->select('totalCart')->get();
 
-        // dd($Amount);
-
         $Amount = !count($Amount) ? 0.0 : $Amount[0]->totalCart;
 
         $quantItems = count($myCart);

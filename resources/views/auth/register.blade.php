@@ -4,7 +4,7 @@
     @include('includes.headerbootstrap')
 </head>
 <style>
-    
+
     #wrap {
         box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
         margin-top: 7rem;
@@ -26,7 +26,7 @@
                 <h1 class="text-center"><a class="navbar-brand" href="/">FULL<strong
                             class="text-info">Ecommerce</strong></a></h1>
                 <p class="text-center lead">Criar conta</p>
-            </div>  
+            </div>
             <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <!-- Name -->
@@ -60,7 +60,7 @@
                     <div class="d-flex justify-content-between">
                         <label for="password" class="form-label">Senha</label>
                         @error('password')
-                            <p class="font-weight-light text-danger text-center">Senhas inválidas !</p>
+                            <p class="font-weight-light text-danger text-center">Senhas inválidas ou muito curtas!</p>
                         @enderror
                     </div>
                     <input value="{{ old('password') }}" name="password" type="password"
