@@ -1,6 +1,6 @@
 
 # Full Ecommerce
-
+ 
 Este projeto é voltado para o setor de vendas, no qual o principal objetivo é fornecer ao proprietário uma gestão completa de vendas, pedidos, gerenciamento de estoque, mudanças de estilo no site, relatórios, atendimento de suporte além de ofertar seus produtos de forma dinâmica e intuitiva.
 
 
