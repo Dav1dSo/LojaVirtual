@@ -39,7 +39,7 @@ Route::post('/galleyProducts/delete/{idImage}', [ProductsController::class, 'Gal
 
 Route::get('/getArticles', [ArticlesController::class, 'GetArticles'])->middleware(['auth', 'verified'])->name('management_articles');
 Route::get('/CreateArticles', [ArticlesController::class, 'CreateArticle'])->middleware(['auth', 'verified'])->name('management_add_article');
-Route::post('/CreateArticles', [ArticlesController::class, 'CreateArticle'])->middleware(['auth', 'verified'])->name('management_create_article');
+Route::post('/CreateArticles', [ArticlesController::class, 'SaveArticle'])->middleware(['auth', 'verified'])->name('management_create_article');
 
 // --------------- -----  Buy Product  -----  ----------------
 
