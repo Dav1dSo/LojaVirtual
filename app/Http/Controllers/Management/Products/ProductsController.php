@@ -60,16 +60,7 @@ class ProductsController extends Controller
             $imagesProducts = new ImagesProducts();
             $imagesRequest = $request->allFiles()['imagem'];
 
-            foreach ($imagesRequest as $fileImage) {
-                $filepath = $fileImage->store('img/Products', 'public');
-
-                $insertImageProduct = [
-                    'products_id' => $idProduct,
-                    'path' => $filepath,
-                ];
-
-                $imagesProducts::create($insertImageProduct);
-            }
+            
         }
 
         return redirect('/areaAdministrativa');
